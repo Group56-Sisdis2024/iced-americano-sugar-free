@@ -1,0 +1,46 @@
+Hardhat Ignition starting for [ PddiktiModule ]...[2K[1GHardhat Ignition 🚀
+
+Deploying [ PddiktiModule ]
+
+Batch #1
+  Executing PddiktiModule#DegreeToken...
+  Executing PddiktiModule#UniversityContract...
+
+[4A[0JBatch #1
+  Executing PddiktiModule#DegreeToken...
+  Executing PddiktiModule#UniversityContract...
+
+[4A[0JBatch #1
+  Executed PddiktiModule#DegreeToken
+  Executing PddiktiModule#UniversityContract...
+
+[4A[0JBatch #1
+  Executed PddiktiModule#DegreeToken
+  Executing PddiktiModule#UniversityContract...
+
+[4A[0JBatch #1
+  Executed PddiktiModule#DegreeToken
+  Executed PddiktiModule#UniversityContract
+
+[4A[0JBatch #1
+  Executed PddiktiModule#DegreeToken
+  Executed PddiktiModule#UniversityContract
+
+Batch #2
+  Executing PddiktiModule#DegreeToken.addUniversity...
+
+[3A[0JBatch #2
+  Executing PddiktiModule#DegreeToken.addUniversity...
+
+[3A[0JBatch #2
+  Executed PddiktiModule#DegreeToken.addUniversity
+
+[3A[0JBatch #2
+  Executed PddiktiModule#DegreeToken.addUniversity
+
+[ PddiktiModule ] successfully deployed 🚀
+
+Deployed Addresses
+
+PddiktiModule#DegreeToken - 0x5FbDB2315678afecb367f032d93F642f64180aa3
+PddiktiModule#UniversityContract - 0x8464135c8F25Da09e49BC8782676a84730C318bC

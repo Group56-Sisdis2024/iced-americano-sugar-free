@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "hardhat compile",
-    "node": "hardhat node > ./log/hardhat_node.log",
-    "dev": "npm run compile && hardhat ignition deploy ./ignition/modules/Pddikti.ts",
+    "node": "hardhat node 2>&1 | tee  ./log/hardhat_node.log",
+    "dev": "npm run compile && hardhat ignition deploy ./ignition/modules/Pddikti.ts --network localhost 2>&1 | tee  ./log/hardhat_ignition_deploy.log",
     "visualize": "hardhat ignition visualize ./ignition/modules/Pddikti.ts"
   },
   "author": "",
