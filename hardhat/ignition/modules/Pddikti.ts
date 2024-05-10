@@ -10,7 +10,7 @@ const PddiktiModule = buildModule("PddiktiModule", (m)=>{
     const univeristyAContract = m.contract("UniversityContract", [pddiktiAccount, universityAName], {
         from: universityAAccount
     })
-    m.call(degreeToken, "addUniversity", [universityAAccount, universityAName], {
+    const addUnivA = m.call(degreeToken, "addUniversity", [universityAAccount, universityAName], {
         from: pddiktiAccount,
         after: [degreeToken]
     })
