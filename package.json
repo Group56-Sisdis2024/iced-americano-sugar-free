@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "hardhat compile",
-    "node": "hardhat node",
+    "node": "hardhat node > ./log/hardhat_node.log",
     "dev": "npm run compile && hardhat ignition deploy ./ignition/modules/Pddikti.ts",
     "visualize": "hardhat ignition visualize ./ignition/modules/Pddikti.ts"
   },
