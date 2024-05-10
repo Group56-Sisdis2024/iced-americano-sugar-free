@@ -7,3 +7,12 @@
 4. bisakah degreenya dimint langsung ke address mahasiswa? tentu bisa. tapi ntar ga ada use case mahasiswa dong?
 5. Kalau struct terlalu banyak properties, bakal ada error max call stack. jadi yg Student bbrp properties gw block dulu
 6. Untuk student, walletnya bakal dibuat di frontend pakai ether js. Or idk... blom coba...
+
+# command jalanin hardhat:
+npm run compile: compiling solidity contract
+
+npm run node: to create new local hardhat network. need for deploying
+
+npm run visualize: visualize deployement graph
+
+npm run dev: compile and deploy to local

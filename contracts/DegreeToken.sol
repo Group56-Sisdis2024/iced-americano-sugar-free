@@ -3,19 +3,17 @@ pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
 import { Library } from "contracts/Library.sol";
 
 contract DegreeToken is ERC721 {
-    using Counters for Counters.Counter;
     using Library for Library.University;
     mapping(address => Library.University) universities;
-    Counters.Counter private _tokenIds;
+    uint256 private _tokenIds;
     address public owner;
 
-    constructor(address pddiktiAdress) ERC721("DegreeToken", "DTK")
+    constructor() ERC721("DegreeToken", "DTK")
     {
-         owner = pddiktiAdress;
+         owner = msg.sender;
     }
 
     function addUniversity(address uniAdress, string memory uniName) external {
@@ -32,9 +30,9 @@ contract DegreeToken is ERC721 {
         uint256[] memory _tokenIdToBeReturned = new uint256[](numOfToken);
         for (uint256 i = 0; i < numOfToken; i++) 
         {
-            _safeMint(msg.sender, _tokenIds.current());
-            _tokenIdToBeReturned[i] = _tokenIds.current();
-            _tokenIds.increment();
+            _safeMint(msg.sender, _tokenIds);
+            _tokenIdToBeReturned[i] = _tokenIds;
+            _tokenIds+=1;
         }
         return _tokenIdToBeReturned;
     }

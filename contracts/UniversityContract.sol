@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.20;
-import "@openzeppelin/contracts/utils/Counters.sol";
+// import "@openzeppelin/contracts/utils/Counters.sol";
 import "contracts/DegreeToken.sol";
 import {Library} from "contracts/Library.sol";
 
@@ -14,7 +14,7 @@ contract UniversityContract {
     // 5. Kalau struct terlalu banyak properties, bakal ada error max call stack. jadi yg Student bbrp properties gw block dulu
     // 6. Untuk student, walletnya bakal dibuat di frontend pakai ether js. Or idk... blom coba...
     // 
-    using Counters for Counters.Counter;
+    // using Counters for uint256;
     using Library for Library.University;
     using Library for Library.Student;
     using Library for Library.Course;
@@ -25,25 +25,25 @@ contract UniversityContract {
 
     Library.University public owner;
     mapping (uint256 => Library.Curriculum) private curriculums;
-    Counters.Counter private curriculumsId;
+    uint256 private curriculumsId;
 
     mapping (uint256 =>Library.Course)  courses;
-    Counters.Counter private coursesId;
+    uint256 private coursesId;
 
     mapping (uint256 => Library.Student) public students;
     mapping (address => uint256) public addressToStudents;
 
-    Counters.Counter private studentsId;
+    uint256 private studentsId;
     mapping (uint256 => Library.AcademicRecord[]) private academicRecords; // records semester, status (aktif/nonaktif/kampus merdeka), and passed courses
     mapping (uint256 => mapping (uint256 => bool)) private studentToPassedCourses; // records student and courses they had passed
     mapping (uint256 => bool) private studentsToEligibilityForGraduation;
     mapping (uint256 => uint256[]) private curriculumToMandatoryCourses;
 
     uint256[] degreeIdsPool; // pool of Degree (NFT) id that are available to be claimed by eligible students
-    Counters.Counter private degreeIdsPoolId; // increment by 1 whenever a student claim their degree
+    uint256 private degreeIdsPoolId; // increment by 1 whenever a student claim their degree
 
-    constructor(address _pddikti, address add, string memory name){
-        owner = Library.University(add, name, true);
+    constructor(address _pddikti, string memory name){
+        owner = Library.University(msg.sender, name, true);
         pddikti = DegreeToken(_pddikti);
     }
     modifier onlyUniversity() {
@@ -52,7 +52,7 @@ contract UniversityContract {
     }
 
     modifier onlyStudent(uint256 studentId){
-        require(studentId < studentsId.current());
+        require(studentId < studentsId);
         require(msg.sender == students[studentId]._address);
         _;
     }
@@ -70,10 +70,10 @@ contract UniversityContract {
         uint256 accumulatedCredit,
         uint256 curriculumId
     ) external onlyUniversity {
-        require(curriculums[curriculumId].id < curriculumsId.current()); 
-        students[studentsId.current()] = Library.Student(
+        require(curriculums[curriculumId].id < curriculumsId); 
+        students[studentsId] = Library.Student(
                 _address,
-                studentsId.current(),
+                studentsId,
                 npm,
                 name,
                 // gender,
@@ -86,36 +86,36 @@ contract UniversityContract {
                 0, 
                 curriculumId
         );
-        studentsId.increment();
+        studentsId += 1;
     }
 
     function addACurriculum(string calldata name, string calldata major) external onlyUniversity {
-        curriculums[curriculumsId.current()] = Library.Curriculum(
-            curriculumsId.current(),
+        curriculums[curriculumsId] = Library.Curriculum(
+            curriculumsId,
             name,
             major
         );
-        curriculumsId.increment();
+        curriculumsId += 1;
     }
 
     function addACourse(string calldata name, uint256 credits, uint256[] memory mandatoriesForCurriculum) external onlyUniversity {
         for(uint256 i=0; i<mandatoriesForCurriculum.length;i++){
             uint256 curriculumId = mandatoriesForCurriculum[i];
-            require(curriculumId < curriculumsId.current()); // check if there's invalid curriculum id
+            require(curriculumId < curriculumsId); // check if there's invalid curriculum id
         }
-        courses[coursesId.current()] = Library.Course(coursesId.current(), name, credits);
+        courses[coursesId] = Library.Course(coursesId, name, credits);
         for(uint256 i=0; i<mandatoriesForCurriculum.length;i++){
             uint256 curriculumId = mandatoriesForCurriculum[i];
-            curriculumToMandatoryCourses[curriculumId].push(coursesId.current());
+            curriculumToMandatoryCourses[curriculumId].push(coursesId);
         }
-        coursesId.increment();
+        coursesId +=1;
     }
 
     function addAnAcademicRecord(uint256 studentId, string calldata semester, string calldata status, uint256[] calldata passedCoursesId) external onlyUniversity {
-        require(studentId < studentsId.current());
+        require(studentId < studentsId);
         for(uint256 i=0; i<passedCoursesId.length;i++){
             uint256 courseId = passedCoursesId[i];
-            require(courseId < coursesId.current());  // check if there's invalid course id
+            require(courseId < coursesId);  // check if there's invalid course id
         }
         uint256 creditsGained = 0;
         for (uint256 i = 0; i<passedCoursesId.length; i++) 
@@ -162,12 +162,12 @@ contract UniversityContract {
     }
     function claimDegree(uint256 studentId) external onlyStudent(studentId) {
         require(studentsToEligibilityForGraduation[studentId]);
-        pddikti.grantDegree(students[studentId]._address, degreeIdsPool[degreeIdsPoolId.current()]);
-        degreeIdsPoolId.increment();
+        pddikti.grantDegree(students[studentId]._address, degreeIdsPool[degreeIdsPoolId]);
+        degreeIdsPoolId+=1;
     }
 
     function getStudentInformation(uint256 studentId) external view returns (Library.Student memory, Library.AcademicRecord[] memory){
-        require(studentId < studentsId.current());
+        require(studentId < studentsId);
         return (students[studentId], academicRecords[studentId]);
     }
 }
