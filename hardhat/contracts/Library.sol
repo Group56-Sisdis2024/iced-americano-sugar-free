@@ -21,22 +21,22 @@ library Library {
         uint256 id;
         string npm;
         string name;
-        // string gender;
-        // string university;
-        // string major;
-        // string firstSemester;
-        // string initialStatus;
-        // string currentStatus;
         uint256 accumulatedCredits;
         uint256 grantedDegreeId;
         uint256 curriculumId;
+        uint256 totalCreditsTaken; // to calculate gpa
+        uint256 weightedTotalGrade; // to calculate gpa
     }
 
     struct AcademicRecord{
         string semester;
         string status;
-        uint256 totalCredits;
-        uint256[] passedCoursesId;
+        uint256 totalCreditsPassed;
+        uint256[] passedCoursesId; // for student.accumulatedCredits
+        uint256[] takenCoursesId; // for semesterGPA
+        uint256[] takenCoursesGrade; // for semesterGPA
+        uint256 totalCreditsTaken; // to calculate semester gpa
+        uint256 weightedTotalGrade; // to calculate semester gpa
     }
 
     struct Course{

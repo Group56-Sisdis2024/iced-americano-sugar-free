@@ -3,7 +3,6 @@
 pragma solidity ^0.8.20;
 import "contracts/DegreeToken.sol";
 import {Library} from "contracts/Library.sol";
-
 contract UniversityContract { 
     // Note:
     // 1. gw masih bingung cara ngirim list of struct sebagai parameter dari frontend gimana, i don't know if that's even possible, jadi yg nambah cuma satu satu dulu aja
@@ -13,7 +12,6 @@ contract UniversityContract {
     // 5. Kalau struct terlalu banyak properties, bakal ada error max call stack. jadi yg Student bbrp properties gw block dulu
     // 6. Untuk student, walletnya bakal dibuat di frontend pakai ether js. Or idk... blom coba...
     // 
-    // using Counters for uint256;
     using Library for Library.University;
     using Library for Library.Student;
     using Library for Library.Course;
@@ -56,13 +54,7 @@ contract UniversityContract {
         address _address,
         string memory npm,
         string memory name,
-        // string memory gender,
-        // string memory university,
-        // string memory major,
-        // string memory firstSemester,
-        // string memory initialStatus,
-        // string memory currentStatus,
-        uint256 accumulatedCredit,
+        uint256 accumulatedCredit, // if pindah kampus, kreditnya kan ada transfer sks
         uint256 curriculumId
     ) external onlyUniversity {
         require(curriculumId < curriculumsId);
@@ -73,15 +65,11 @@ contract UniversityContract {
                     studentsId,
                     npm,
                     name,
-                    // gender,
-                    // university, 
-                    // major, 
-                    // firstSemester, 
-                    // initialStatus, 
-                    // currentStatus, 
                     accumulatedCredit, 
                     0, 
-                    curriculumId
+                    curriculumId,
+                    0,
+                    0
             );
         studentsId += 1;
     }
@@ -110,28 +98,47 @@ contract UniversityContract {
         coursesId +=1;
     }
 
-    function addAnAcademicRecord(uint256 studentId, string calldata semester, string calldata status, uint256[] calldata passedCoursesId) external onlyUniversity {
+    function addAnAcademicRecord(uint256 studentId, string calldata semester, string calldata status, uint256[] calldata passedCoursesId, uint256[] calldata takenCoursesId, uint256[] calldata takenCoursesGrade) external onlyUniversity {
         require(studentId < studentsId);
+        require(takenCoursesId.length == takenCoursesGrade.length);
         for(uint256 i=0; i<passedCoursesId.length;i++){
-            uint256 courseId = passedCoursesId[i];
-            require(courseId < coursesId);  // check if there's invalid course id
+            require(passedCoursesId[i] < coursesId);  // check if there's invalid course id
         }
+        (uint256 creditsGained, uint256 totalCreditsTakenSemesterly, uint256 weightedTotalGradeSemesterly) = _calculate(studentId, passedCoursesId, takenCoursesId, takenCoursesGrade);
+        academicRecords[studentId].push(Library.AcademicRecord(
+            semester,
+            status,
+            creditsGained,
+            passedCoursesId,
+            takenCoursesId,
+            takenCoursesGrade,
+            totalCreditsTakenSemesterly,
+            weightedTotalGradeSemesterly
+        ));
+        _updateStudentData(studentId, creditsGained, totalCreditsTakenSemesterly, weightedTotalGradeSemesterly);
+    }
+    function _updateStudentData(uint256 studentId, uint256 creditsGained, uint256 totalCreditsTakenSemesterly, uint256 weightedTotalGradeSemesterly) internal {
+        students[studentId].accumulatedCredits += creditsGained;
+        students[studentId].totalCreditsTaken += totalCreditsTakenSemesterly;
+        students[studentId].weightedTotalGrade += weightedTotalGradeSemesterly;
+        if(_checkIfEligibleForGraduation(studentId)){
+            students[studentId].grantedDegreeId = _mintADegree(studentId);
+        }
+    }
+    function _calculate(uint256 studentId, uint256[] calldata passedCoursesId, uint256[] calldata takenCoursesId, uint256[] calldata takenCoursesGrade) internal returns (uint256, uint256, uint256){
         uint256 creditsGained = 0;
         for (uint256 i = 0; i<passedCoursesId.length; i++) 
         {
             creditsGained += courses[passedCoursesId[i]].credits;
             studentToPassedCourses[studentId][passedCoursesId[i]] = true;
         }
-        academicRecords[studentId].push(Library.AcademicRecord(
-            semester,
-            status,
-            creditsGained,
-            passedCoursesId
-        ));
-        students[studentId].accumulatedCredits += creditsGained;
-        if(_checkIfEligibleForGraduation(studentId)){
-            students[studentId].grantedDegreeId = _mintADegree(studentId);
+        uint256 weightedTotalGradeSemesterly = 0;
+        uint256 totalCreditsTakenSemesterly = 0;
+        for (uint256 i=0; i<takenCoursesId.length;i++){
+            totalCreditsTakenSemesterly += courses[takenCoursesId[i]].credits;
+            weightedTotalGradeSemesterly += takenCoursesGrade[i] * courses[takenCoursesId[i]].credits;
         }
+        return (creditsGained, totalCreditsTakenSemesterly, weightedTotalGradeSemesterly);
     }
     function _mintADegree(uint256 studentId) internal returns (uint256) {
         return pddikti.mintADegree(students[studentId]._address);
