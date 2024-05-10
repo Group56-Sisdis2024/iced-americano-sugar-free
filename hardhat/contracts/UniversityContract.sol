@@ -22,15 +22,15 @@ contract UniversityContract {
 
     Library.University public owner;
     mapping (uint256 => Library.Curriculum) public curriculums;
-    uint256 private curriculumsId;
+    uint256 public curriculumsId;
 
     mapping (uint256 =>Library.Course) public courses;
-    uint256 private coursesId;
+    uint256 public coursesId;
 
     mapping (uint256 => Library.Student) public students;
     mapping (address => uint256) public addressToStudents;
 
-    uint256 private studentsId;
+    uint256 public studentsId;
     mapping (uint256 => Library.AcademicRecord[]) private academicRecords; // records semester, status (aktif/nonaktif/kampus merdeka), and passed courses
     mapping (uint256 => mapping (uint256 => bool)) private studentToPassedCourses; // records student and courses they had passed
     mapping (uint256 => uint256[]) public curriculumToMandatoryCourses;

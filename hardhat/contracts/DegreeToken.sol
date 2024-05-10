@@ -6,8 +6,8 @@ import { Library } from "contracts/Library.sol";
 
 contract DegreeToken is ERC721 {
     using Library for Library.University;
-    mapping(address => Library.University) universities;
-    mapping (address => address) studentsToUniverity;
+    mapping(address => Library.University) public universities;
+    mapping (address => address) public studentsToUniverity;
     uint256 private _tokenIds;
     address public owner;
 
