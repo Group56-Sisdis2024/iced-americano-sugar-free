@@ -35,11 +35,7 @@ contract UniversityContract {
     uint256 private studentsId;
     mapping (uint256 => Library.AcademicRecord[]) private academicRecords; // records semester, status (aktif/nonaktif/kampus merdeka), and passed courses
     mapping (uint256 => mapping (uint256 => bool)) private studentToPassedCourses; // records student and courses they had passed
-    mapping (uint256 => bool) private studentsToEligibilityForGraduation;
     mapping (uint256 => uint256[]) private curriculumToMandatoryCourses;
-
-    uint256[] degreeIdsPool; // pool of Degree (NFT) id that are available to be claimed by eligible students
-    uint256 private degreeIdsPoolId; // increment by 1 whenever a student claim their degree
 
     constructor(address _pddikti, string memory name){
         owner = Library.University(msg.sender, name, true);
@@ -70,22 +66,24 @@ contract UniversityContract {
         uint256 curriculumId
     ) external onlyUniversity {
         require(curriculums[curriculumId].id < curriculumsId); 
-        students[studentsId] = Library.Student(
-                _address,
-                studentsId,
-                npm,
-                name,
-                // gender,
-                // university, 
-                // major, 
-                // firstSemester, 
-                // initialStatus, 
-                // currentStatus, 
-                accumulatedCredit, 
-                0, 
-                curriculumId
-        );
-        studentsId += 1;
+        if(pddikti.registerStudent(_address)){
+            students[studentsId] = Library.Student(
+                    _address,
+                    studentsId,
+                    npm,
+                    name,
+                    // gender,
+                    // university, 
+                    // major, 
+                    // firstSemester, 
+                    // initialStatus, 
+                    // currentStatus, 
+                    accumulatedCredit, 
+                    0, 
+                    curriculumId
+            );
+            studentsId += 1;
+        }
     }
 
     function addACurriculum(string calldata name, string calldata major) external onlyUniversity {
@@ -130,22 +128,13 @@ contract UniversityContract {
         ));
         students[studentId].accumulatedCredits += creditsGained;
         if(_checkIfEligibleForGraduation(studentId)){
-            studentsToEligibilityForGraduation[studentId] = true;
-            // mint degree for 1 person. 
-            _mintDegrees(1);
+            students[studentId].grantedDegreeId = _mintDegrees(studentId);
         }
     }
-    function _mintDegrees(uint256 numberOfStudentsEligibleForGraduation) internal {
-        uint256[] memory result = pddikti.mintDegrees(numberOfStudentsEligibleForGraduation);
-        for (uint256 i =0; i < result.length; i++) 
-        {
-            degreeIdsPool.push(result[i]);
-        }
+    function _mintDegrees(uint256 studentId) internal returns (uint256) {
+        return pddikti.mintDegrees(students[studentId]._address);
     }
     function _checkIfEligibleForGraduation(uint256 studentId) internal view returns (bool){
-        if(studentsToEligibilityForGraduation[studentId]){
-            return true;
-        }
         if (students[studentId].accumulatedCredits < 144) {
             return false;
         }
@@ -158,11 +147,6 @@ contract UniversityContract {
             }
         }
         return true;
-    }
-    function claimDegree(uint256 studentId) external onlyStudent(studentId) {
-        require(studentsToEligibilityForGraduation[studentId]);
-        pddikti.grantDegree(students[studentId]._address, degreeIdsPool[degreeIdsPoolId]);
-        degreeIdsPoolId+=1;
     }
 
     function getStudentInformation(uint256 studentId) external view returns (Library.Student memory, Library.AcademicRecord[] memory){
