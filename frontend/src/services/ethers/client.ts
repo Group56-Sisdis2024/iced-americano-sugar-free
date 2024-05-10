@@ -1,6 +1,6 @@
 import { BrowserProvider } from "ethers/providers";
 import log from "loglevel";
-import { DegreeToken__factory, DegreeToken, UniversityContract, UniversityContract__factory } from "../typechain-types";
+import { DegreeToken__factory, DegreeToken, UniversityContract, UniversityContract__factory } from "../../types/typechain-types";
 
 const pddiktiAddress = "0x1ea4e7A798557001b99D88D6b4ba7F7fc79406A9";
 
