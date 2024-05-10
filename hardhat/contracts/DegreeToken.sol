@@ -26,14 +26,14 @@ contract DegreeToken is ERC721 {
         _;
     }
 
-    function mintDegrees(address studentAddress) external onlyUniversity returns (uint256){
+    function mintADegree(address studentAddress) external onlyUniversity returns (uint256){
         require(studentsToUniverity[studentAddress] == msg.sender);
         _tokenIds+=1;
         _safeMint(studentAddress, _tokenIds);
         return _tokenIds;
     }
     
-    function registerStudent(address student) external onlyUniversity returns (bool) {
+    function registerAStudent(address student) external onlyUniversity returns (bool) {
         if(studentsToUniverity[student] != address(0)){
             return false;
         }

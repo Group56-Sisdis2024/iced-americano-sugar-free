@@ -65,9 +65,9 @@ contract UniversityContract {
         uint256 accumulatedCredit,
         uint256 curriculumId
     ) external onlyUniversity {
-        require(curriculums[curriculumId].id < curriculumsId); 
-        if(pddikti.registerStudent(_address)){
-            students[studentsId] = Library.Student(
+        require(curriculums[curriculumId].id < curriculumsId);
+        require(pddikti.registerAStudent(_address));
+        students[studentsId] = Library.Student(
                     _address,
                     studentsId,
                     npm,
@@ -82,8 +82,7 @@ contract UniversityContract {
                     0, 
                     curriculumId
             );
-            studentsId += 1;
-        }
+        studentsId += 1;
     }
 
     function addACurriculum(string calldata name, string calldata major) external onlyUniversity {
@@ -128,11 +127,11 @@ contract UniversityContract {
         ));
         students[studentId].accumulatedCredits += creditsGained;
         if(_checkIfEligibleForGraduation(studentId)){
-            students[studentId].grantedDegreeId = _mintDegrees(studentId);
+            students[studentId].grantedDegreeId = _mintADegree(studentId);
         }
     }
-    function _mintDegrees(uint256 studentId) internal returns (uint256) {
-        return pddikti.mintDegrees(students[studentId]._address);
+    function _mintADegree(uint256 studentId) internal returns (uint256) {
+        return pddikti.mintADegree(students[studentId]._address);
     }
     function _checkIfEligibleForGraduation(uint256 studentId) internal view returns (bool){
         if (students[studentId].accumulatedCredits < 144) {
