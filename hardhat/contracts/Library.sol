@@ -12,6 +12,8 @@ library Library {
         uint256 id;
         string name;
         string major;
+        uint256 minimumCredits;
+        bool active;
     }
     
     struct Student {

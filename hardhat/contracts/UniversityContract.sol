@@ -23,10 +23,10 @@ contract UniversityContract {
     DegreeToken internal pddikti;
 
     Library.University public owner;
-    mapping (uint256 => Library.Curriculum) private curriculums;
+    mapping (uint256 => Library.Curriculum) public curriculums;
     uint256 private curriculumsId;
 
-    mapping (uint256 =>Library.Course)  courses;
+    mapping (uint256 =>Library.Course) public courses;
     uint256 private coursesId;
 
     mapping (uint256 => Library.Student) public students;
@@ -35,7 +35,7 @@ contract UniversityContract {
     uint256 private studentsId;
     mapping (uint256 => Library.AcademicRecord[]) private academicRecords; // records semester, status (aktif/nonaktif/kampus merdeka), and passed courses
     mapping (uint256 => mapping (uint256 => bool)) private studentToPassedCourses; // records student and courses they had passed
-    mapping (uint256 => uint256[]) private curriculumToMandatoryCourses;
+    mapping (uint256 => uint256[]) public curriculumToMandatoryCourses;
 
     constructor(address _pddikti, string memory name){
         owner = Library.University(msg.sender, name, true);
@@ -65,7 +65,8 @@ contract UniversityContract {
         uint256 accumulatedCredit,
         uint256 curriculumId
     ) external onlyUniversity {
-        require(curriculums[curriculumId].id < curriculumsId);
+        require(curriculumId < curriculumsId);
+        require(curriculums[curriculumId].active);
         require(pddikti.registerAStudent(_address));
         students[studentsId] = Library.Student(
                     _address,
@@ -85,11 +86,13 @@ contract UniversityContract {
         studentsId += 1;
     }
 
-    function addACurriculum(string calldata name, string calldata major) external onlyUniversity {
+    function addACurriculum(string calldata name, string calldata major, uint256 minimumCredits) external onlyUniversity {
         curriculums[curriculumsId] = Library.Curriculum(
             curriculumsId,
             name,
-            major
+            major,
+            minimumCredits,
+            true
         );
         curriculumsId += 1;
     }
@@ -134,7 +137,7 @@ contract UniversityContract {
         return pddikti.mintADegree(students[studentId]._address);
     }
     function _checkIfEligibleForGraduation(uint256 studentId) internal view returns (bool){
-        if (students[studentId].accumulatedCredits < 144) {
+        if (students[studentId].accumulatedCredits < curriculums[students[studentId].curriculumId].minimumCredits) {
             return false;
         }
         // please check mandatory courses
@@ -151,5 +154,10 @@ contract UniversityContract {
     function getStudentInformation(uint256 studentId) external view returns (Library.Student memory, Library.AcademicRecord[] memory){
         require(studentId < studentsId);
         return (students[studentId], academicRecords[studentId]);
+    }
+
+    function toggleCurriculum(uint256 curriculumId) external onlyUniversity {
+        require(curriculumId < curriculumsId);
+        curriculums[curriculumId].active = !curriculums[curriculumId].active;
     }
 }
