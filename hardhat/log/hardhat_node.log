@@ -69,77 +69,24 @@ Private Key: 0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e
 WARNING: These accounts, and their private keys, are publicly known.
 Any funds sent to them on Mainnet or any other live network WILL BE LOST.
 
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
 [32meth_chainId[0m
-[32mhardhat_metadata[0m
-[32meth_accounts[0m
-[32mhardhat_getAutomine[0m
+[32meth_chainId (2)[0m
+[32meth_blockNumber[0m
 [32meth_chainId[0m
+[32meth_blockNumber[0m
+[32mnet_version[0m
+[32meth_getBalance[0m
+[32meth_getBalance (2)[0m
 [32meth_getBlockByNumber[0m
-[32meth_getTransactionCount[0m
-[32meth_getTransactionCount (2)[0m
-[32meth_getTransactionCount (3)[0m
-[32meth_getTransactionCount (4)[0m
-[32meth_getTransactionCount (5)[0m
-[32meth_getTransactionCount (6)[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionCount[0m
-[32meth_getBlockByNumber[0m
-[32meth_estimateGas[0m
-[32meth_call[0m
-  Contract deployment: DegreeToken
-  Contract address:    0x5fbdb2315678afecb367f032d93f642f64180aa3
-  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
-
-[32meth_sendTransaction[0m
-  Contract deployment: DegreeToken
-  Contract address:    0x5fbdb2315678afecb367f032d93f642f64180aa3
-  Transaction:         0x2385d59bc3b0e9041134cf897519c978115b72c9fe0e54c228d03051622c4119
-  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
-  Value:               0 ETH
-  Gas used:            2246451 of 2246451
-  Block #1:            0xfedad16d01bc3f79cdd8e7f4d9e8e1c0b2948834fc4b94f240159e77385f7c5f
-
-[32meth_getTransactionByHash[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionReceipt[0m
-[32meth_getTransactionCount[0m
-[32meth_getBlockByNumber[0m
-[32meth_estimateGas[0m
-[32meth_call[0m
-  Contract deployment: UniversityContract
-  Contract address:    0x8464135c8f25da09e49bc8782676a84730c318bc
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-
-[32meth_sendTransaction[0m
-  Contract deployment: UniversityContract
-  Contract address:    0x8464135c8f25da09e49bc8782676a84730c318bc
-  Transaction:         0x14395755e55c64b4d908fa435f3b0abfe7bb47bc739f50bf21730d2b7e267bf2
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-  Value:               0 ETH
-  Gas used:            2203970 of 2203970
-  Block #2:            0x5c986f894b61b250cad712c1bd2c4c098b50eda0fd21a48139f64444282e3eae
-
-[32meth_getTransactionByHash[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionReceipt[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionCount[0m
-[32meth_getBlockByNumber[0m
-[32meth_estimateGas[0m
-[32meth_call[0m
-  Contract call:       DegreeToken#addUniversity
-  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
-  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
-
-[32meth_sendTransaction[0m
-  Contract call:       DegreeToken#addUniversity
-  Transaction:         0xbc5e56fb941deb16fed8ea18bb8f8126cb3082ff9333fe3aff97bc58f0f698ba
-  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
-  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
-  Value:               0 ETH
-  Gas used:            92552 of 92552
-  Block #3:            0x46c51c08f19b44e001d2934d10719538829d0e8a3dc82734c5d396e69ecd861a
-
-[32meth_getTransactionByHash[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionReceipt[0m
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_chainId[0m
+[32meth_chainId (2)[0m
+[32meth_chainId (3)[0m
+[32meth_chainId (4)[0m
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
