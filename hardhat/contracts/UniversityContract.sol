@@ -14,6 +14,7 @@ contract UniversityContract {
 
     // List of curriculum addresses
     address[] public curriculums;
+    uint256 public curriculumsId;
 
     // Emitted when a new curriculum is added
     event CurriculumAdded(address indexed curriculumAddress);
@@ -33,6 +34,7 @@ contract UniversityContract {
     function addACurriculum(address curAddress) external onlyUniversityOwner {
         require(curAddress != address(0), "Invalid address");
         curriculums.push(curAddress);
+        curriculumsId += 1;
         pddikti.addACurriculum(curAddress);
         emit CurriculumAdded(curAddress);
     }

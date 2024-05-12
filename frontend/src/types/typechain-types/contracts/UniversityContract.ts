@@ -25,7 +25,11 @@ import type {
 
 export interface UniversityContractInterface extends Interface {
   getFunction(
-    nameOrSignature: "addACurriculum" | "curriculums" | "universityInfo"
+    nameOrSignature:
+      | "addACurriculum"
+      | "curriculums"
+      | "curriculumsId"
+      | "universityInfo"
   ): FunctionFragment;
 
   getEvent(nameOrSignatureOrTopic: "CurriculumAdded"): EventFragment;
@@ -39,6 +43,10 @@ export interface UniversityContractInterface extends Interface {
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
+    functionFragment: "curriculumsId",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "universityInfo",
     values?: undefined
   ): string;
@@ -49,6 +57,10 @@ export interface UniversityContractInterface extends Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "curriculums",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "curriculumsId",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -120,6 +132,8 @@ export interface UniversityContract extends BaseContract {
 
   curriculums: TypedContractMethod<[arg0: BigNumberish], [string], "view">;
 
+  curriculumsId: TypedContractMethod<[], [bigint], "view">;
+
   universityInfo: TypedContractMethod<
     [],
     [
@@ -142,6 +156,9 @@ export interface UniversityContract extends BaseContract {
   getFunction(
     nameOrSignature: "curriculums"
   ): TypedContractMethod<[arg0: BigNumberish], [string], "view">;
+  getFunction(
+    nameOrSignature: "curriculumsId"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
     nameOrSignature: "universityInfo"
   ): TypedContractMethod<
