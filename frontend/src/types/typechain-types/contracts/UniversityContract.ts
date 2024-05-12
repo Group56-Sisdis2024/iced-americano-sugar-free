@@ -8,6 +8,7 @@ import type {
   FunctionFragment,
   Result,
   Interface,
+  EventFragment,
   AddressLike,
   ContractRunner,
   ContractMethod,
@@ -17,201 +18,55 @@ import type {
   TypedContractEvent,
   TypedDeferredTopicFilter,
   TypedEventLog,
+  TypedLogDescription,
   TypedListener,
   TypedContractMethod,
 } from "../common";
 
-export declare namespace Library {
-  export type StudentStruct = {
-    _address: AddressLike;
-    id: BigNumberish;
-    npm: string;
-    name: string;
-    accumulatedCredits: BigNumberish;
-    grantedDegreeId: BigNumberish;
-    curriculumId: BigNumberish;
-    totalCreditsTaken: BigNumberish;
-    weightedTotalGrade: BigNumberish;
-  };
-
-  export type StudentStructOutput = [
-    _address: string,
-    id: bigint,
-    npm: string,
-    name: string,
-    accumulatedCredits: bigint,
-    grantedDegreeId: bigint,
-    curriculumId: bigint,
-    totalCreditsTaken: bigint,
-    weightedTotalGrade: bigint
-  ] & {
-    _address: string;
-    id: bigint;
-    npm: string;
-    name: string;
-    accumulatedCredits: bigint;
-    grantedDegreeId: bigint;
-    curriculumId: bigint;
-    totalCreditsTaken: bigint;
-    weightedTotalGrade: bigint;
-  };
-
-  export type AcademicRecordStruct = {
-    semester: string;
-    status: string;
-    totalCreditsPassed: BigNumberish;
-    passedCoursesId: BigNumberish[];
-    takenCoursesId: BigNumberish[];
-    takenCoursesGrade: BigNumberish[];
-    totalCreditsTaken: BigNumberish;
-    weightedTotalGrade: BigNumberish;
-  };
-
-  export type AcademicRecordStructOutput = [
-    semester: string,
-    status: string,
-    totalCreditsPassed: bigint,
-    passedCoursesId: bigint[],
-    takenCoursesId: bigint[],
-    takenCoursesGrade: bigint[],
-    totalCreditsTaken: bigint,
-    weightedTotalGrade: bigint
-  ] & {
-    semester: string;
-    status: string;
-    totalCreditsPassed: bigint;
-    passedCoursesId: bigint[];
-    takenCoursesId: bigint[];
-    takenCoursesGrade: bigint[];
-    totalCreditsTaken: bigint;
-    weightedTotalGrade: bigint;
-  };
-}
-
 export interface UniversityContractInterface extends Interface {
   getFunction(
-    nameOrSignature:
-      | "addACourse"
-      | "addACurriculum"
-      | "addAStudent"
-      | "addAnAcademicRecord"
-      | "addressToStudents"
-      | "courses"
-      | "coursesId"
-      | "curriculumToMandatoryCourses"
-      | "curriculums"
-      | "curriculumsId"
-      | "getStudentInformation"
-      | "owner"
-      | "students"
-      | "studentsId"
-      | "toggleCurriculum"
+    nameOrSignature: "addACurriculum" | "curriculums" | "universityInfo"
   ): FunctionFragment;
 
-  encodeFunctionData(
-    functionFragment: "addACourse",
-    values: [string, BigNumberish, BigNumberish[]]
-  ): string;
+  getEvent(nameOrSignatureOrTopic: "CurriculumAdded"): EventFragment;
+
   encodeFunctionData(
     functionFragment: "addACurriculum",
-    values: [string, string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "addAStudent",
-    values: [AddressLike, string, string, BigNumberish, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "addAnAcademicRecord",
-    values: [
-      BigNumberish,
-      string,
-      string,
-      BigNumberish[],
-      BigNumberish[],
-      BigNumberish[]
-    ]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "addressToStudents",
     values: [AddressLike]
   ): string;
   encodeFunctionData(
-    functionFragment: "courses",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(functionFragment: "coursesId", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "curriculumToMandatoryCourses",
-    values: [BigNumberish, BigNumberish]
-  ): string;
-  encodeFunctionData(
     functionFragment: "curriculums",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "curriculumsId",
+    functionFragment: "universityInfo",
     values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getStudentInformation",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(functionFragment: "owner", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "students",
-    values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "studentsId",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "toggleCurriculum",
-    values: [BigNumberish]
   ): string;
 
-  decodeFunctionResult(functionFragment: "addACourse", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "addACurriculum",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "addAStudent",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "addAnAcademicRecord",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "addressToStudents",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "courses", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "coursesId", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "curriculumToMandatoryCourses",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
     functionFragment: "curriculums",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "curriculumsId",
+    functionFragment: "universityInfo",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(
-    functionFragment: "getStudentInformation",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "students", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "studentsId", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "toggleCurriculum",
-    data: BytesLike
-  ): Result;
+}
+
+export namespace CurriculumAddedEvent {
+  export type InputTuple = [curriculumAddress: AddressLike];
+  export type OutputTuple = [curriculumAddress: string];
+  export interface OutputObject {
+    curriculumAddress: string;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
 }
 
 export interface UniversityContract extends BaseContract {
@@ -257,86 +112,15 @@ export interface UniversityContract extends BaseContract {
     event?: TCEvent
   ): Promise<this>;
 
-  addACourse: TypedContractMethod<
-    [
-      name: string,
-      credits: BigNumberish,
-      mandatoriesForCurriculum: BigNumberish[]
-    ],
-    [void],
-    "nonpayable"
-  >;
-
   addACurriculum: TypedContractMethod<
-    [name: string, major: string, minimumCredits: BigNumberish],
+    [curAddress: AddressLike],
     [void],
     "nonpayable"
   >;
 
-  addAStudent: TypedContractMethod<
-    [
-      _address: AddressLike,
-      npm: string,
-      name: string,
-      accumulatedCredit: BigNumberish,
-      curriculumId: BigNumberish
-    ],
-    [void],
-    "nonpayable"
-  >;
+  curriculums: TypedContractMethod<[arg0: BigNumberish], [string], "view">;
 
-  addAnAcademicRecord: TypedContractMethod<
-    [
-      studentId: BigNumberish,
-      semester: string,
-      status: string,
-      passedCoursesId: BigNumberish[],
-      takenCoursesId: BigNumberish[],
-      takenCoursesGrade: BigNumberish[]
-    ],
-    [void],
-    "nonpayable"
-  >;
-
-  addressToStudents: TypedContractMethod<[arg0: AddressLike], [bigint], "view">;
-
-  courses: TypedContractMethod<
-    [arg0: BigNumberish],
-    [[bigint, string, bigint] & { id: bigint; name: string; credits: bigint }],
-    "view"
-  >;
-
-  coursesId: TypedContractMethod<[], [bigint], "view">;
-
-  curriculumToMandatoryCourses: TypedContractMethod<
-    [arg0: BigNumberish, arg1: BigNumberish],
-    [bigint],
-    "view"
-  >;
-
-  curriculums: TypedContractMethod<
-    [arg0: BigNumberish],
-    [
-      [bigint, string, string, bigint, boolean] & {
-        id: bigint;
-        name: string;
-        major: string;
-        minimumCredits: bigint;
-        active: boolean;
-      }
-    ],
-    "view"
-  >;
-
-  curriculumsId: TypedContractMethod<[], [bigint], "view">;
-
-  getStudentInformation: TypedContractMethod<
-    [studentId: BigNumberish],
-    [[Library.StudentStructOutput, Library.AcademicRecordStructOutput[]]],
-    "view"
-  >;
-
-  owner: TypedContractMethod<
+  universityInfo: TypedContractMethod<
     [],
     [
       [string, string, boolean] & {
@@ -346,42 +130,6 @@ export interface UniversityContract extends BaseContract {
       }
     ],
     "view"
-  >;
-
-  students: TypedContractMethod<
-    [arg0: BigNumberish],
-    [
-      [
-        string,
-        bigint,
-        string,
-        string,
-        bigint,
-        bigint,
-        bigint,
-        bigint,
-        bigint
-      ] & {
-        _address: string;
-        id: bigint;
-        npm: string;
-        name: string;
-        accumulatedCredits: bigint;
-        grantedDegreeId: bigint;
-        curriculumId: bigint;
-        totalCreditsTaken: bigint;
-        weightedTotalGrade: bigint;
-      }
-    ],
-    "view"
-  >;
-
-  studentsId: TypedContractMethod<[], [bigint], "view">;
-
-  toggleCurriculum: TypedContractMethod<
-    [curriculumId: BigNumberish],
-    [void],
-    "nonpayable"
   >;
 
   getFunction<T extends ContractMethod = ContractMethod>(
@@ -389,97 +137,13 @@ export interface UniversityContract extends BaseContract {
   ): T;
 
   getFunction(
-    nameOrSignature: "addACourse"
-  ): TypedContractMethod<
-    [
-      name: string,
-      credits: BigNumberish,
-      mandatoriesForCurriculum: BigNumberish[]
-    ],
-    [void],
-    "nonpayable"
-  >;
-  getFunction(
     nameOrSignature: "addACurriculum"
-  ): TypedContractMethod<
-    [name: string, major: string, minimumCredits: BigNumberish],
-    [void],
-    "nonpayable"
-  >;
-  getFunction(
-    nameOrSignature: "addAStudent"
-  ): TypedContractMethod<
-    [
-      _address: AddressLike,
-      npm: string,
-      name: string,
-      accumulatedCredit: BigNumberish,
-      curriculumId: BigNumberish
-    ],
-    [void],
-    "nonpayable"
-  >;
-  getFunction(
-    nameOrSignature: "addAnAcademicRecord"
-  ): TypedContractMethod<
-    [
-      studentId: BigNumberish,
-      semester: string,
-      status: string,
-      passedCoursesId: BigNumberish[],
-      takenCoursesId: BigNumberish[],
-      takenCoursesGrade: BigNumberish[]
-    ],
-    [void],
-    "nonpayable"
-  >;
-  getFunction(
-    nameOrSignature: "addressToStudents"
-  ): TypedContractMethod<[arg0: AddressLike], [bigint], "view">;
-  getFunction(
-    nameOrSignature: "courses"
-  ): TypedContractMethod<
-    [arg0: BigNumberish],
-    [[bigint, string, bigint] & { id: bigint; name: string; credits: bigint }],
-    "view"
-  >;
-  getFunction(
-    nameOrSignature: "coursesId"
-  ): TypedContractMethod<[], [bigint], "view">;
-  getFunction(
-    nameOrSignature: "curriculumToMandatoryCourses"
-  ): TypedContractMethod<
-    [arg0: BigNumberish, arg1: BigNumberish],
-    [bigint],
-    "view"
-  >;
+  ): TypedContractMethod<[curAddress: AddressLike], [void], "nonpayable">;
   getFunction(
     nameOrSignature: "curriculums"
-  ): TypedContractMethod<
-    [arg0: BigNumberish],
-    [
-      [bigint, string, string, bigint, boolean] & {
-        id: bigint;
-        name: string;
-        major: string;
-        minimumCredits: bigint;
-        active: boolean;
-      }
-    ],
-    "view"
-  >;
+  ): TypedContractMethod<[arg0: BigNumberish], [string], "view">;
   getFunction(
-    nameOrSignature: "curriculumsId"
-  ): TypedContractMethod<[], [bigint], "view">;
-  getFunction(
-    nameOrSignature: "getStudentInformation"
-  ): TypedContractMethod<
-    [studentId: BigNumberish],
-    [[Library.StudentStructOutput, Library.AcademicRecordStructOutput[]]],
-    "view"
-  >;
-  getFunction(
-    nameOrSignature: "owner"
+    nameOrSignature: "universityInfo"
   ): TypedContractMethod<
     [],
     [
@@ -491,41 +155,25 @@ export interface UniversityContract extends BaseContract {
     ],
     "view"
   >;
-  getFunction(
-    nameOrSignature: "students"
-  ): TypedContractMethod<
-    [arg0: BigNumberish],
-    [
-      [
-        string,
-        bigint,
-        string,
-        string,
-        bigint,
-        bigint,
-        bigint,
-        bigint,
-        bigint
-      ] & {
-        _address: string;
-        id: bigint;
-        npm: string;
-        name: string;
-        accumulatedCredits: bigint;
-        grantedDegreeId: bigint;
-        curriculumId: bigint;
-        totalCreditsTaken: bigint;
-        weightedTotalGrade: bigint;
-      }
-    ],
-    "view"
-  >;
-  getFunction(
-    nameOrSignature: "studentsId"
-  ): TypedContractMethod<[], [bigint], "view">;
-  getFunction(
-    nameOrSignature: "toggleCurriculum"
-  ): TypedContractMethod<[curriculumId: BigNumberish], [void], "nonpayable">;
 
-  filters: {};
+  getEvent(
+    key: "CurriculumAdded"
+  ): TypedContractEvent<
+    CurriculumAddedEvent.InputTuple,
+    CurriculumAddedEvent.OutputTuple,
+    CurriculumAddedEvent.OutputObject
+  >;
+
+  filters: {
+    "CurriculumAdded(address)": TypedContractEvent<
+      CurriculumAddedEvent.InputTuple,
+      CurriculumAddedEvent.OutputTuple,
+      CurriculumAddedEvent.OutputObject
+    >;
+    CurriculumAdded: TypedContractEvent<
+      CurriculumAddedEvent.InputTuple,
+      CurriculumAddedEvent.OutputTuple,
+      CurriculumAddedEvent.OutputObject
+    >;
+  };
 }

@@ -6,23 +6,42 @@ import { Library } from "contracts/Library.sol";
 
 contract DegreeToken is ERC721 {
     using Library for Library.University;
-    mapping(address => Library.University) public universities;
+    enum ROLE {
+        ANONYMOUS, // by default 0
+        PDDIKTI,
+        UNIVERSITY,
+        STUDENT
+    }
+    mapping (address => ROLE) public roles; // account address
+    mapping(address => Library.University) public universities; //contract address
+    Library.University[] public uniLists;
+    uint256 public uniListsId;
+    mapping(address => address) public curriculumToUniversitiesContract; // contract address
     mapping (address => address) public studentsToUniverity;
     uint256 private _tokenIds;
     address public owner;
 
+
     constructor() ERC721("DegreeToken", "DTK")
     {
-         owner = msg.sender;
+        owner = msg.sender;
+        roles[msg.sender] = ROLE.PDDIKTI;
     }
 
-    function addUniversity(address uniAdress, string memory uniName) external {
+    function addUniversity(address uniContractAdress, address uniAccountAddress, string memory uniName) external {
         require(msg.sender == owner);
-        universities[uniAdress] = Library.University(uniAdress, uniName, true);
+        universities[uniContractAdress] = Library.University(uniContractAdress, uniName, true);
+        uniLists.push(Library.University(uniContractAdress, uniName, true));
+        roles[uniAccountAddress] = ROLE.UNIVERSITY;
+        uniListsId+=1;
     }
 
     modifier onlyUniversity(){
-        require(universities[msg.sender].exists);
+        require(universities[msg.sender].exists, "Only University");
+        _;
+    }
+    modifier onlyCurriculum(){
+        require(curriculumToUniversitiesContract[msg.sender] != address(0), "Only Curriculum");
         _;
     }
 
@@ -32,12 +51,17 @@ contract DegreeToken is ERC721 {
         _safeMint(studentAddress, _tokenIds);
         return _tokenIds;
     }
+
+    function addACurriculum(address _curriculumContract) external onlyUniversity {
+        curriculumToUniversitiesContract[_curriculumContract] = msg.sender;
+    }
     
-    function registerAStudent(address student) external onlyUniversity returns (bool) {
+    function registerAStudent(address student) external onlyCurriculum returns (bool) {
         if(studentsToUniverity[student] != address(0)){
             return false;
         }
         studentsToUniverity[student] = msg.sender;
+        roles[student] = ROLE.STUDENT;
         return true;
     }
 }

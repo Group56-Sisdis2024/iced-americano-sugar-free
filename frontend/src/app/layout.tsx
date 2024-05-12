@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { WalletAuth } from "@/utils/walletCtx";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {children}
+        <WalletAuth>{children}</WalletAuth>
         <Toaster />
       </body>
     </html>

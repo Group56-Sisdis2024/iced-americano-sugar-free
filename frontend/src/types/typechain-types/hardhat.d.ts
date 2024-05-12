@@ -62,6 +62,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Strings__factory>;
     getContractFactory(
+      name: "CurriculumContract",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CurriculumContract__factory>;
+    getContractFactory(
       name: "DegreeToken",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.DegreeToken__factory>;
@@ -131,6 +135,11 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.Strings>;
     getContractAt(
+      name: "CurriculumContract",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CurriculumContract>;
+    getContractAt(
       name: "DegreeToken",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -190,6 +199,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Strings>;
     deployContract(
+      name: "CurriculumContract",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CurriculumContract>;
+    deployContract(
       name: "DegreeToken",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.DegreeToken>;
@@ -258,6 +271,11 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Strings>;
+    deployContract(
+      name: "CurriculumContract",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CurriculumContract>;
     deployContract(
       name: "DegreeToken",
       args: any[],

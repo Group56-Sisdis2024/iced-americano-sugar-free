@@ -26,9 +26,11 @@ import type {
 export interface DegreeTokenInterface extends Interface {
   getFunction(
     nameOrSignature:
+      | "addACurriculum"
       | "addUniversity"
       | "approve"
       | "balanceOf"
+      | "curriculumToUniversitiesContract"
       | "getApproved"
       | "isApprovedForAll"
       | "mintADegree"
@@ -36,6 +38,7 @@ export interface DegreeTokenInterface extends Interface {
       | "owner"
       | "ownerOf"
       | "registerAStudent"
+      | "roles"
       | "safeTransferFrom(address,address,uint256)"
       | "safeTransferFrom(address,address,uint256,bytes)"
       | "setApprovalForAll"
@@ -44,6 +47,8 @@ export interface DegreeTokenInterface extends Interface {
       | "symbol"
       | "tokenURI"
       | "transferFrom"
+      | "uniLists"
+      | "uniListsId"
       | "universities"
   ): FunctionFragment;
 
@@ -52,8 +57,12 @@ export interface DegreeTokenInterface extends Interface {
   ): EventFragment;
 
   encodeFunctionData(
+    functionFragment: "addACurriculum",
+    values: [AddressLike]
+  ): string;
+  encodeFunctionData(
     functionFragment: "addUniversity",
-    values: [AddressLike, string]
+    values: [AddressLike, AddressLike, string]
   ): string;
   encodeFunctionData(
     functionFragment: "approve",
@@ -61,6 +70,10 @@ export interface DegreeTokenInterface extends Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "balanceOf",
+    values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "curriculumToUniversitiesContract",
     values: [AddressLike]
   ): string;
   encodeFunctionData(
@@ -85,6 +98,7 @@ export interface DegreeTokenInterface extends Interface {
     functionFragment: "registerAStudent",
     values: [AddressLike]
   ): string;
+  encodeFunctionData(functionFragment: "roles", values: [AddressLike]): string;
   encodeFunctionData(
     functionFragment: "safeTransferFrom(address,address,uint256)",
     values: [AddressLike, AddressLike, BigNumberish]
@@ -115,16 +129,32 @@ export interface DegreeTokenInterface extends Interface {
     values: [AddressLike, AddressLike, BigNumberish]
   ): string;
   encodeFunctionData(
+    functionFragment: "uniLists",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "uniListsId",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "universities",
     values: [AddressLike]
   ): string;
 
+  decodeFunctionResult(
+    functionFragment: "addACurriculum",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "addUniversity",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "curriculumToUniversitiesContract",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "getApproved",
     data: BytesLike
@@ -144,6 +174,7 @@ export interface DegreeTokenInterface extends Interface {
     functionFragment: "registerAStudent",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "roles", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "safeTransferFrom(address,address,uint256)",
     data: BytesLike
@@ -170,6 +201,8 @@ export interface DegreeTokenInterface extends Interface {
     functionFragment: "transferFrom",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "uniLists", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "uniListsId", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "universities",
     data: BytesLike
@@ -277,8 +310,18 @@ export interface DegreeToken extends BaseContract {
     event?: TCEvent
   ): Promise<this>;
 
+  addACurriculum: TypedContractMethod<
+    [_curriculumContract: AddressLike],
+    [void],
+    "nonpayable"
+  >;
+
   addUniversity: TypedContractMethod<
-    [uniAdress: AddressLike, uniName: string],
+    [
+      uniContractAdress: AddressLike,
+      uniAccountAddress: AddressLike,
+      uniName: string
+    ],
     [void],
     "nonpayable"
   >;
@@ -290,6 +333,12 @@ export interface DegreeToken extends BaseContract {
   >;
 
   balanceOf: TypedContractMethod<[owner: AddressLike], [bigint], "view">;
+
+  curriculumToUniversitiesContract: TypedContractMethod<
+    [arg0: AddressLike],
+    [string],
+    "view"
+  >;
 
   getApproved: TypedContractMethod<[tokenId: BigNumberish], [string], "view">;
 
@@ -316,6 +365,8 @@ export interface DegreeToken extends BaseContract {
     [boolean],
     "nonpayable"
   >;
+
+  roles: TypedContractMethod<[arg0: AddressLike], [bigint], "view">;
 
   "safeTransferFrom(address,address,uint256)": TypedContractMethod<
     [from: AddressLike, to: AddressLike, tokenId: BigNumberish],
@@ -362,6 +413,20 @@ export interface DegreeToken extends BaseContract {
     "nonpayable"
   >;
 
+  uniLists: TypedContractMethod<
+    [arg0: BigNumberish],
+    [
+      [string, string, boolean] & {
+        uniAdress: string;
+        name: string;
+        exists: boolean;
+      }
+    ],
+    "view"
+  >;
+
+  uniListsId: TypedContractMethod<[], [bigint], "view">;
+
   universities: TypedContractMethod<
     [arg0: AddressLike],
     [
@@ -379,9 +444,20 @@ export interface DegreeToken extends BaseContract {
   ): T;
 
   getFunction(
+    nameOrSignature: "addACurriculum"
+  ): TypedContractMethod<
+    [_curriculumContract: AddressLike],
+    [void],
+    "nonpayable"
+  >;
+  getFunction(
     nameOrSignature: "addUniversity"
   ): TypedContractMethod<
-    [uniAdress: AddressLike, uniName: string],
+    [
+      uniContractAdress: AddressLike,
+      uniAccountAddress: AddressLike,
+      uniName: string
+    ],
     [void],
     "nonpayable"
   >;
@@ -395,6 +471,9 @@ export interface DegreeToken extends BaseContract {
   getFunction(
     nameOrSignature: "balanceOf"
   ): TypedContractMethod<[owner: AddressLike], [bigint], "view">;
+  getFunction(
+    nameOrSignature: "curriculumToUniversitiesContract"
+  ): TypedContractMethod<[arg0: AddressLike], [string], "view">;
   getFunction(
     nameOrSignature: "getApproved"
   ): TypedContractMethod<[tokenId: BigNumberish], [string], "view">;
@@ -420,6 +499,9 @@ export interface DegreeToken extends BaseContract {
   getFunction(
     nameOrSignature: "registerAStudent"
   ): TypedContractMethod<[student: AddressLike], [boolean], "nonpayable">;
+  getFunction(
+    nameOrSignature: "roles"
+  ): TypedContractMethod<[arg0: AddressLike], [bigint], "view">;
   getFunction(
     nameOrSignature: "safeTransferFrom(address,address,uint256)"
   ): TypedContractMethod<
@@ -465,6 +547,22 @@ export interface DegreeToken extends BaseContract {
     [void],
     "nonpayable"
   >;
+  getFunction(
+    nameOrSignature: "uniLists"
+  ): TypedContractMethod<
+    [arg0: BigNumberish],
+    [
+      [string, string, boolean] & {
+        uniAdress: string;
+        name: string;
+        exists: boolean;
+      }
+    ],
+    "view"
+  >;
+  getFunction(
+    nameOrSignature: "uniListsId"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
     nameOrSignature: "universities"
   ): TypedContractMethod<

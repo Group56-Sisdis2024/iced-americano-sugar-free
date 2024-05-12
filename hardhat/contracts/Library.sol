@@ -9,7 +9,7 @@ library Library {
     }
     
     struct Curriculum {
-        uint256 id;
+        address id;
         string name;
         string major;
         uint256 minimumCredits;

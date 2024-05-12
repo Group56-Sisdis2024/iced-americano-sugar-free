@@ -30,6 +30,8 @@ export type { Math } from "./@openzeppelin/contracts/utils/math/Math";
 export { Math__factory } from "./factories/@openzeppelin/contracts/utils/math/Math__factory";
 export type { Strings } from "./@openzeppelin/contracts/utils/Strings";
 export { Strings__factory } from "./factories/@openzeppelin/contracts/utils/Strings__factory";
+export type { CurriculumContract } from "./contracts/CurriculumContract";
+export { CurriculumContract__factory } from "./factories/contracts/CurriculumContract__factory";
 export type { DegreeToken } from "./contracts/DegreeToken";
 export { DegreeToken__factory } from "./factories/contracts/DegreeToken__factory";
 export type { UniversityContract } from "./contracts/UniversityContract";

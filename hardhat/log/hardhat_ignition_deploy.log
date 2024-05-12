@@ -3,44 +3,93 @@ Hardhat Ignition starting for [ PddiktiModule ]...[2K[1GHardhat Ignition 🚀
 Deploying [ PddiktiModule ]
 
 Batch #1
-  Executing PddiktiModule#DegreeToken...
-  Executing PddiktiModule#UniversityContract...
+  Executing BootstrapModule#DegreeToken...
 
-[4A[0JBatch #1
-  Executing PddiktiModule#DegreeToken...
-  Executing PddiktiModule#UniversityContract...
+[3A[0JBatch #1
+  Executing BootstrapModule#DegreeToken...
 
-[4A[0JBatch #1
-  Executed PddiktiModule#DegreeToken
-  Executing PddiktiModule#UniversityContract...
+[3A[0JBatch #1
+  Executed BootstrapModule#DegreeToken
 
-[4A[0JBatch #1
-  Executed PddiktiModule#DegreeToken
-  Executing PddiktiModule#UniversityContract...
-
-[4A[0JBatch #1
-  Executed PddiktiModule#DegreeToken
-  Executed PddiktiModule#UniversityContract
-
-[4A[0JBatch #1
-  Executed PddiktiModule#DegreeToken
-  Executed PddiktiModule#UniversityContract
+[3A[0JBatch #1
+  Executed BootstrapModule#DegreeToken
 
 Batch #2
-  Executing PddiktiModule#DegreeToken.addUniversity...
+  Executing BootstrapModule#CurriculumContract...
+  Executing BootstrapModule#UniversityContract...
 
-[3A[0JBatch #2
-  Executing PddiktiModule#DegreeToken.addUniversity...
+[4A[0JBatch #2
+  Executing BootstrapModule#CurriculumContract...
+  Executing BootstrapModule#UniversityContract...
 
-[3A[0JBatch #2
-  Executed PddiktiModule#DegreeToken.addUniversity
+[4A[0JBatch #2
+  Executed BootstrapModule#CurriculumContract
+  Executing BootstrapModule#UniversityContract...
 
-[3A[0JBatch #2
-  Executed PddiktiModule#DegreeToken.addUniversity
+[4A[0JBatch #2
+  Executed BootstrapModule#CurriculumContract
+  Executing BootstrapModule#UniversityContract...
+
+[4A[0JBatch #2
+  Executed BootstrapModule#CurriculumContract
+  Executed BootstrapModule#UniversityContract
+
+[4A[0JBatch #2
+  Executed BootstrapModule#CurriculumContract
+  Executed BootstrapModule#UniversityContract
+
+Batch #3
+  Executing BootstrapModule#AddACourseOfMatKul_A...
+  Executing BootstrapModule#DegreeToken.addUniversity...
+
+[4A[0JBatch #3
+  Executing BootstrapModule#AddACourseOfMatKul_A...
+  Executing BootstrapModule#DegreeToken.addUniversity...
+
+[4A[0JBatch #3
+  Executed BootstrapModule#AddACourseOfMatKul_A
+  Executing BootstrapModule#DegreeToken.addUniversity...
+
+[4A[0JBatch #3
+  Executed BootstrapModule#AddACourseOfMatKul_A
+  Executing BootstrapModule#DegreeToken.addUniversity...
+
+[4A[0JBatch #3
+  Executed BootstrapModule#AddACourseOfMatKul_A
+  Executed BootstrapModule#DegreeToken.addUniversity
+
+[4A[0JBatch #3
+  Executed BootstrapModule#AddACourseOfMatKul_A
+  Executed BootstrapModule#DegreeToken.addUniversity
+
+Batch #4
+  Executing BootstrapModule#UniversityContract.addACurriculum...
+
+[3A[0JBatch #4
+  Executing BootstrapModule#UniversityContract.addACurriculum...
+
+[3A[0JBatch #4
+  Executed BootstrapModule#UniversityContract.addACurriculum
+
+[3A[0JBatch #4
+  Executed BootstrapModule#UniversityContract.addACurriculum
+
+Batch #5
+  Executing PddiktiModule#BootstrapModule~CurriculumContract.addAStudent...
+
+[3A[0JBatch #5
+  Executing PddiktiModule#BootstrapModule~CurriculumContract.addAStudent...
+
+[3A[0JBatch #5
+  Executed PddiktiModule#BootstrapModule~CurriculumContract.addAStudent
+
+[3A[0JBatch #5
+  Executed PddiktiModule#BootstrapModule~CurriculumContract.addAStudent
 
 [ PddiktiModule ] successfully deployed 🚀
 
 Deployed Addresses
 
-PddiktiModule#DegreeToken - 0x5FbDB2315678afecb367f032d93F642f64180aa3
-PddiktiModule#UniversityContract - 0x8464135c8F25Da09e49BC8782676a84730C318bC
+BootstrapModule#DegreeToken - 0x5FbDB2315678afecb367f032d93F642f64180aa3
+BootstrapModule#CurriculumContract - 0x8464135c8F25Da09e49BC8782676a84730C318bC
+BootstrapModule#UniversityContract - 0x71C95911E9a5D330f4D621842EC243EE1343292e
