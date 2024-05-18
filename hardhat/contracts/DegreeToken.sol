@@ -45,7 +45,7 @@ contract DegreeToken is ERC721 {
         _;
     }
 
-    function mintADegree(address studentAddress) external onlyUniversity returns (uint256){
+    function mintADegree(address studentAddress) external onlyCurriculum returns (uint256){
         require(studentsToUniverity[studentAddress] == msg.sender);
         _tokenIds+=1;
         _safeMint(studentAddress, _tokenIds);
@@ -56,7 +56,7 @@ contract DegreeToken is ERC721 {
         curriculumToUniversitiesContract[_curriculumContract] = msg.sender;
     }
     
-    function registerAStudent(address student) external onlyCurriculum returns (bool) {
+    function registerAStudent(address student) external onlyUniversity returns (bool) {
         if(studentsToUniverity[student] != address(0)){
             return false;
         }

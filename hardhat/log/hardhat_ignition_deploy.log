@@ -15,51 +15,39 @@ Batch #1
   Executed BootstrapModule#DegreeToken
 
 Batch #2
-  Executing BootstrapModule#CurriculumContract...
   Executing BootstrapModule#UniversityContract...
 
-[4A[0JBatch #2
-  Executing BootstrapModule#CurriculumContract...
+[3A[0JBatch #2
   Executing BootstrapModule#UniversityContract...
 
-[4A[0JBatch #2
-  Executed BootstrapModule#CurriculumContract
-  Executing BootstrapModule#UniversityContract...
-
-[4A[0JBatch #2
-  Executed BootstrapModule#CurriculumContract
-  Executing BootstrapModule#UniversityContract...
-
-[4A[0JBatch #2
-  Executed BootstrapModule#CurriculumContract
+[3A[0JBatch #2
   Executed BootstrapModule#UniversityContract
 
-[4A[0JBatch #2
-  Executed BootstrapModule#CurriculumContract
+[3A[0JBatch #2
   Executed BootstrapModule#UniversityContract
 
 Batch #3
-  Executing BootstrapModule#AddACourseOfMatKul_A...
+  Executing BootstrapModule#CurriculumContract...
   Executing BootstrapModule#DegreeToken.addUniversity...
 
 [4A[0JBatch #3
-  Executing BootstrapModule#AddACourseOfMatKul_A...
+  Executing BootstrapModule#CurriculumContract...
   Executing BootstrapModule#DegreeToken.addUniversity...
 
 [4A[0JBatch #3
-  Executed BootstrapModule#AddACourseOfMatKul_A
+  Executed BootstrapModule#CurriculumContract
   Executing BootstrapModule#DegreeToken.addUniversity...
 
 [4A[0JBatch #3
-  Executed BootstrapModule#AddACourseOfMatKul_A
+  Executed BootstrapModule#CurriculumContract
   Executing BootstrapModule#DegreeToken.addUniversity...
 
 [4A[0JBatch #3
-  Executed BootstrapModule#AddACourseOfMatKul_A
+  Executed BootstrapModule#CurriculumContract
   Executed BootstrapModule#DegreeToken.addUniversity
 
 [4A[0JBatch #3
-  Executed BootstrapModule#AddACourseOfMatKul_A
+  Executed BootstrapModule#CurriculumContract
   Executed BootstrapModule#DegreeToken.addUniversity
 
 Batch #4
@@ -75,21 +63,57 @@ Batch #4
   Executed BootstrapModule#UniversityContract.addACurriculum
 
 Batch #5
-  Executing PddiktiModule#BootstrapModule~CurriculumContract.addAStudent...
+  Executing BootstrapModule#AddACourseOfMatKul_A...
+  Executing BootstrapModule#AddCourseToCurriculumMatKul_A...
 
-[3A[0JBatch #5
-  Executing PddiktiModule#BootstrapModule~CurriculumContract.addAStudent...
+[4A[0JBatch #5
+  Executing BootstrapModule#AddACourseOfMatKul_A...
+  Executing BootstrapModule#AddCourseToCurriculumMatKul_A...
 
-[3A[0JBatch #5
-  Executed PddiktiModule#BootstrapModule~CurriculumContract.addAStudent
+[4A[0JBatch #5
+  Executed BootstrapModule#AddACourseOfMatKul_A
+  Executing BootstrapModule#AddCourseToCurriculumMatKul_A...
 
-[3A[0JBatch #5
-  Executed PddiktiModule#BootstrapModule~CurriculumContract.addAStudent
+[4A[0JBatch #5
+  Executed BootstrapModule#AddACourseOfMatKul_A
+  Executing BootstrapModule#AddCourseToCurriculumMatKul_A...
+
+[4A[0JBatch #5
+  Executed BootstrapModule#AddACourseOfMatKul_A
+  Executed BootstrapModule#AddCourseToCurriculumMatKul_A
+
+[4A[0JBatch #5
+  Executed BootstrapModule#AddACourseOfMatKul_A
+  Executed BootstrapModule#AddCourseToCurriculumMatKul_A
+
+Batch #6
+  Executing PddiktiModule#BootstrapModule~UniversityContract.addAStudent...
+  Executing PddiktiModule#BootstrapModule~UniversityContract.addStudentToCurriculum...
+
+[4A[0JBatch #6
+  Executing PddiktiModule#BootstrapModule~UniversityContract.addAStudent...
+  Executing PddiktiModule#BootstrapModule~UniversityContract.addStudentToCurriculum...
+
+[4A[0JBatch #6
+  Executed PddiktiModule#BootstrapModule~UniversityContract.addAStudent
+  Executing PddiktiModule#BootstrapModule~UniversityContract.addStudentToCurriculum...
+
+[4A[0JBatch #6
+  Executed PddiktiModule#BootstrapModule~UniversityContract.addAStudent
+  Executing PddiktiModule#BootstrapModule~UniversityContract.addStudentToCurriculum...
+
+[4A[0JBatch #6
+  Executed PddiktiModule#BootstrapModule~UniversityContract.addAStudent
+  Executed PddiktiModule#BootstrapModule~UniversityContract.addStudentToCurriculum
+
+[4A[0JBatch #6
+  Executed PddiktiModule#BootstrapModule~UniversityContract.addAStudent
+  Executed PddiktiModule#BootstrapModule~UniversityContract.addStudentToCurriculum
 
 [ PddiktiModule ] successfully deployed 🚀
 
 Deployed Addresses
 
-BootstrapModule#DegreeToken - 0x5FbDB2315678afecb367f032d93F642f64180aa3
-BootstrapModule#CurriculumContract - 0x8464135c8F25Da09e49BC8782676a84730C318bC
-BootstrapModule#UniversityContract - 0x71C95911E9a5D330f4D621842EC243EE1343292e
+BootstrapModule#DegreeToken - 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
+BootstrapModule#UniversityContract - 0x712516e61C8B383dF4A63CFe83d7701Bce54B03e
+BootstrapModule#CurriculumContract - 0xbCF26943C0197d2eE0E5D05c716Be60cc2761508
