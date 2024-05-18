@@ -14,6 +14,7 @@ contract DegreeToken is ERC721 {
     }
     mapping (address => ROLE) public roles; // account address
     mapping(address => Library.University) public universities; //contract address
+    mapping(address => address) public universityToUniversityContract; // uni account address
     Library.University[] public uniLists;
     uint256 public uniListsId;
     mapping(address => address) public curriculumToUniversitiesContract; // contract address
@@ -31,6 +32,7 @@ contract DegreeToken is ERC721 {
     function addUniversity(address uniContractAdress, address uniAccountAddress, string memory uniName) external {
         require(msg.sender == owner);
         universities[uniContractAdress] = Library.University(uniContractAdress, uniName, true);
+        universityToUniversityContract[uniAccountAddress] = uniContractAdress;
         uniLists.push(Library.University(uniContractAdress, uniName, true));
         roles[uniAccountAddress] = ROLE.UNIVERSITY;
         uniListsId+=1;

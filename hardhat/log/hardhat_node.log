@@ -69,6 +69,32 @@ Private Key: 0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e
 WARNING: These accounts, and their private keys, are publicly known.
 Any funds sent to them on Mainnet or any other live network WILL BE LOST.
 
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_blockNumber (4)[0m
+[32meth_blockNumber (5)[0m
+[32meth_blockNumber (6)[0m
+[32meth_blockNumber (7)[0m
+[32meth_blockNumber (8)[0m
+[32meth_blockNumber (9)[0m
+[32meth_blockNumber (10)[0m
+[32meth_blockNumber (11)[0m
+[32meth_blockNumber (12)[0m
+[32meth_blockNumber (13)[0m
+[32meth_blockNumber (14)[0m
+[32meth_blockNumber (15)[0m
+[32meth_blockNumber (16)[0m
+[32meth_blockNumber (17)[0m
+[32meth_blockNumber (18)[0m
+[32meth_blockNumber (19)[0m
+[32meth_blockNumber (20)[0m
+[31meth_call[0m
+
+  Received invalid block tag 9. Latest block number is 0
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
 [32meth_chainId[0m
 [32mhardhat_metadata[0m
 [32meth_accounts[0m
@@ -93,11 +119,11 @@ Any funds sent to them on Mainnet or any other live network WILL BE LOST.
 [32meth_sendTransaction[0m
   Contract deployment: DegreeToken
   Contract address:    0x5fbdb2315678afecb367f032d93f642f64180aa3
-  Transaction:         0x52370d947804ae50120f8a573360e76b933e82529da83e65f3814e03317fc2e5
+  Transaction:         0xfe85e75fa1accfe1194ca0560b2ccc881960537ec993352d904ef765bed4d814
   From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
   Value:               0 ETH
-  Gas used:            2780296 of 2780296
-  Block #1:            0x6a56009ea4395785e813c32d75363ae9e464cfb272ab067b01ecda9a954f209f
+  Gas used:            2834742 of 2834742
+  Block #1:            0xfdc8666f9104a07cfba6396a219eddb4423590875f68c6b547ecb86b66124277
 
 [32meth_getTransactionByHash[0m
 [32meth_getBlockByNumber[0m
@@ -114,11 +140,73 @@ Any funds sent to them on Mainnet or any other live network WILL BE LOST.
 [32meth_sendTransaction[0m
   Contract deployment: UniversityContract
   Contract address:    0x8464135c8f25da09e49bc8782676a84730c318bc
-  Transaction:         0xb2b5a74831bc8aa07a0aefb078e3958e4732ecf791b56a38bbe9a3e113b6f19d
+  Transaction:         0xb14165533cb3353a86b64e57b09253967a872374a58997b6b0bf6af36b5e5e21
   From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
   Value:               0 ETH
   Gas used:            1812168 of 1812168
-  Block #2:            0x55177b0cb4629cf544f08a92996396e4333ff6c9ee51dad9613424b35dea549a
+  Block #2:            0x070a9a67df3f7ea3bdceae36cab4096fec002ceca0f90b5432b4b9d05f36e93e
+
+[32meth_getTransactionByHash[0m
+[32meth_getBlockByNumber[0m
+[32meth_getTransactionReceipt[0m
+[32meth_getBlockByNumber[0m
+[32meth_getTransactionCount[0m
+[32meth_getBlockByNumber[0m
+[32meth_estimateGas[0m
+[32meth_call[0m
+  Contract deployment: CurriculumContract
+  Contract address:    0x71c95911e9a5d330f4d621842ec243ee1343292e
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+
+[32meth_sendTransaction[0m
+  Contract deployment: CurriculumContract
+  Contract address:    0x71c95911e9a5d330f4d621842ec243ee1343292e
+  Transaction:         0x5750a74fa211ab9f2ac39f43bde3047ec733f81b185e5dc8883963a383557a1c
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  Value:               0 ETH
+  Gas used:            2486397 of 2486397
+  Block #3:            0x736a53166352dd5ef528603ecdc55749adb2efbb0aa8a4e2ef8c554eda35735e
+
+[32meth_getTransactionByHash[0m
+[32meth_getBlockByNumber[0m
+[32meth_getTransactionReceipt[0m
+[32meth_getTransactionCount[0m
+[32meth_getBlockByNumber[0m
+[32meth_estimateGas[0m
+[32meth_call[0m
+  Contract call:       DegreeToken#addUniversity
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_sendTransaction[0m
+  Contract call:       DegreeToken#addUniversity
+  Transaction:         0xe465d0a3acc051d30c44dfb3d80b8bac808039a53ca7f88619d8e72940b49ed7
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Value:               0 ETH
+  Gas used:            249633 of 249633
+  Block #4:            0x3f8770064bdb3a8dd1191bb49103cf83e3f4d8d84edeb626c37fbe271e298b27
+
+[32meth_getTransactionByHash[0m
+[32meth_getBlockByNumber[0m
+[32meth_getTransactionReceipt[0m
+[32meth_getBlockByNumber[0m
+[32meth_getTransactionCount[0m
+[32meth_getBlockByNumber[0m
+[32meth_estimateGas[0m
+[32meth_call[0m
+  Contract call:       UniversityContract#addACurriculum
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_sendTransaction[0m
+  Contract call:       UniversityContract#addACurriculum
+  Transaction:         0xc7feec4d7a76ee3e1bd213a7f0ffa11cbac7c8d674cca69ecbb59be50fae62b6
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+  Value:               0 ETH
+  Gas used:            122311 of 122311
+  Block #5:            0x9eb77ee48d643dd39e5c0ec06b704544f5e516c89ed93d4889ce6ad1b10c789b
 
 [32meth_getTransactionByHash[0m
 [32meth_getBlockByNumber[0m
@@ -134,18 +222,985 @@ Any funds sent to them on Mainnet or any other live network WILL BE LOST.
 
 [32meth_sendTransaction[0m
   Contract call:       UniversityContract#addACourse
-  Transaction:         0x710aafe926598c5aa06399fa7ebf08ad52a2d06adece416336e083791cdacaf1
+  Transaction:         0x7ccd0ccbcb20b47feb557793ffc1c99c3a4ec48ed7d44d0f688ddbbd8a7ef942
   From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
   To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
   Value:               0 ETH
   Gas used:            94537 of 94537
-  Block #3:            0x1b90f4bfc49b6868f1c610eccc2aa0eb2fbe884d8158c3dafd4e6568b3ac9413
+  Block #6:            0xe8c2e1fc6b3164753e415fd8ed4b5ff20c211a69a8960d3c06f12da3167d184f
 
 [32meth_getTransactionByHash[0m
 [32meth_getBlockByNumber[0m
 [32meth_getTransactionReceipt[0m
 [32meth_getTransactionCount[0m
 [32meth_getBlockByNumber[0m
+[32meth_estimateGas[0m
+[32meth_call[0m
+  Contract call:       UniversityContract#addCourseToCurriculum
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_sendTransaction[0m
+  Contract call:       UniversityContract#addCourseToCurriculum
+  Transaction:         0x5c96cb8408bc21427c12bc784724e4eafa90ce1ec46e65a9a440f074d3274460
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+  Value:               0 ETH
+  Gas used:            143411 of 145091
+  Block #7:            0xf6120a6ee72b33c7a15536c6e9a7edaa5617d604295f721324078bde332bc3ed
+
+[32meth_getTransactionByHash[0m
+[32meth_getBlockByNumber[0m
+[32meth_getTransactionReceipt[0m
+[32meth_getBlockByNumber[0m
+[32meth_getTransactionCount[0m
+[32meth_getBlockByNumber[0m
+[32meth_estimateGas[0m
+[32meth_call[0m
+  Contract call:       UniversityContract#addAStudent
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_sendTransaction[0m
+  Contract call:       UniversityContract#addAStudent
+  Transaction:         0xf44b206cba9f368d5daab46e250fb84c14331ecd5ada83afc67fed0ddd25176e
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+  Value:               0 ETH
+  Gas used:            183138 of 183138
+  Block #8:            0xeaa35f246ca1eb3cbe663464a691276fe61709321d2c5a97afe8b157bf60454f
+
+[32meth_getTransactionByHash[0m
+[32meth_getBlockByNumber[0m
+[32meth_getTransactionReceipt[0m
+[32meth_getTransactionCount[0m
+[32meth_getBlockByNumber[0m
+[32meth_estimateGas[0m
+[32meth_call[0m
+  Contract call:       UniversityContract#addStudentToCurriculum
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_sendTransaction[0m
+  Contract call:       UniversityContract#addStudentToCurriculum
+  Transaction:         0x034ec79b7c9fbea16e479f3801e2c26a7bdb1a687b30043d77104a66a4cb32c5
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+  Value:               0 ETH
+  Gas used:            169181 of 171163
+  Block #9:            0x90c331d5c5d40b1bdd24a86bd22542dd5c8334722c5f2bb5cd20793ce5c2f44e
+
+[32meth_getTransactionByHash[0m
+[32meth_getBlockByNumber[0m
+[32meth_getTransactionReceipt[0m
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_blockNumber (4)[0m
+[32meth_call[0m
+  Contract call:       UniversityContract#studentsId
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       UniversityContract#students
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_estimateGas[0m
+[32meth_getCode[0m
+[32meth_feeHistory[0m
+[32meth_accounts[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_feeHistory[0m
+[32meth_getTransactionCount[0m
+[32meth_sendRawTransaction[0m
+  Contract call:       UniversityContract#addAStudent
+  Transaction:         0xf5d02573598983b4a40c883a314be4a1409787d54f04c9ec19f10a2c52d4fd14
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+  Value:               0 ETH
+  Gas used:            205730 of 205730
+  Block #10:           0x242a557a2fe4f56149107760e86a5eb3a3c6fd92b031b3abacfc1f405eb902d1
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_call[0m
+  WARNING: Calling an account which is not a contract
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x420000000000000000000000000000000000000f
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_getTransactionReceipt[0m
+[32meth_getBlockByHash[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_getTransactionByHash[0m
+[32meth_estimateGas[0m
+[32meth_getCode[0m
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[32meth_getBalance[0m
+[32meth_getBalance (2)[0m
+[32meth_getTransactionCount[0m
+[32meth_feeHistory[0m
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_sendRawTransaction[0m
+  Contract call:       UniversityContract#addStudentToCurriculum
+  Transaction:         0x331812522225966c643a23ac30d3c8c3e4d9e96f32fa4ced8984825c148039b0
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+  Value:               0 ETH
+  Gas used:            191893 of 194142
+  Block #11:           0xccea3bceb3f989f1bcb0f0d112767f4a26d5341bff1288f2ce3f586ee4e39157
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_call[0m
+  WARNING: Calling an account which is not a contract
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x420000000000000000000000000000000000000f
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[32meth_feeHistory (2)[0m
+[32meth_blockNumber[0m
+[32meth_getTransactionReceipt[0m
+[32meth_getBlockByHash[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_getBlockByNumber[0m
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_getTransactionByHash[0m
+[32meth_blockNumber[0m
+[32meth_call[0m
+  Contract call:       DegreeToken#roles
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_blockNumber[0m
+[32meth_call[0m
+  Contract call:       DegreeToken#universityToUniversityContract
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_call[0m
+  Contract call:       UniversityContract#curriculumsId
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       UniversityContract#curriculums
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       CurriculumContract#curriculumDetail
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x71c95911e9a5d330f4d621842ec243ee1343292e
+
+[32meth_call[0m
+  Contract call:       UniversityContract#coursesId
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       UniversityContract#courses
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_estimateGas[0m
+[32meth_getCode[0m
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[32meth_getBalance[0m
+[32meth_getBalance (2)[0m
+[32meth_getTransactionCount[0m
+[32meth_feeHistory[0m
+[32meth_sendRawTransaction[0m
+  Contract call:       UniversityContract#addACourse
+  Transaction:         0xe44c221e6447a9b758c0ea39d2c55bacf0f4c255df0dd2678b676fbcea531cbb
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+  Value:               0 ETH
+  Gas used:            97337 of 97337
+  Block #12:           0x6a2c8a43d6f5121d021725ef45b0091974a4dd5f2b57dbde39dcff3d58403462
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_call[0m
+  WARNING: Calling an account which is not a contract
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x420000000000000000000000000000000000000f
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[32meth_getTransactionReceipt[0m
+[32meth_getBlockByHash[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[32meth_getBlockByNumber[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_getTransactionByHash[0m
+[32meth_call[0m
+  Contract call:       DegreeToken#roles
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_call[0m
+  Contract call:       DegreeToken#universityToUniversityContract
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_call[0m
+  Contract call:       UniversityContract#curriculumsId
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       UniversityContract#curriculums
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       CurriculumContract#curriculumDetail
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x71c95911e9a5d330f4d621842ec243ee1343292e
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_call[0m
+  Contract call:       UniversityContract#coursesId
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       UniversityContract#courses
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       UniversityContract#courses
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_blockNumber (4)[0m
+[32meth_call[0m
+  Contract call:       CurriculumContract#coursesId
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x71c95911e9a5d330f4d621842ec243ee1343292e
+
+[32meth_call[0m
+  Contract call:       CurriculumContract#courses
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x71c95911e9a5d330f4d621842ec243ee1343292e
+
+[32meth_estimateGas[0m
+[32meth_getCode[0m
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[32meth_getBalance[0m
+[32meth_getBalance (2)[0m
+[32meth_getTransactionCount[0m
+[32meth_feeHistory[0m
+[32meth_blockNumber[0m
+[32meth_sendRawTransaction[0m
+  Contract call:       UniversityContract#addCourseToCurriculum
+  Transaction:         0x1ab11c4966eaa01fdbb85b85167d95310b89e950143eac39a3422478ddbdfaef
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+  Value:               0 ETH
+  Gas used:            149023 of 150769
+  Block #13:           0x099fb6b86b79696ed23474a86650bc0bec2bac43ca0df4616ecddd1f160f6728
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_call[0m
+  WARNING: Calling an account which is not a contract
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x420000000000000000000000000000000000000f
+
+[32meth_blockNumber[0m
+[32meth_getTransactionReceipt[0m
+[32meth_getBlockByHash[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[32meth_getBlockByNumber[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_getTransactionByHash[0m
+[32meth_blockNumber[0m
+[32meth_call[0m
+  Contract call:       DegreeToken#roles
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_call[0m
+  Contract call:       DegreeToken#universityToUniversityContract
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_call[0m
+  Contract call:       UniversityContract#curriculumsId
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       UniversityContract#curriculums
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       CurriculumContract#curriculumDetail
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x71c95911e9a5d330f4d621842ec243ee1343292e
+
+[32meth_call[0m
+  Contract call:       UniversityContract#coursesId
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       UniversityContract#courses
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       UniversityContract#courses
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_blockNumber[0m
+[32meth_call[0m
+  Contract call:       CurriculumContract#coursesId
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x71c95911e9a5d330f4d621842ec243ee1343292e
+
+[32meth_call[0m
+  Contract call:       CurriculumContract#courses
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x71c95911e9a5d330f4d621842ec243ee1343292e
+
+[32meth_call[0m
+  Contract call:       CurriculumContract#courses
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x71c95911e9a5d330f4d621842ec243ee1343292e
+
+[32meth_estimateGas[0m
+[32meth_getCode[0m
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_estimateGas[0m
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[32meth_feeHistory[0m
+[32meth_feeHistory (2)[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[32meth_feeHistory (2)[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[32meth_feeHistory (2)[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
 [31meth_estimateGas[0m
   Contract call:       UniversityContract#addCourseToCurriculum
   From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
@@ -154,248 +1209,305 @@ Any funds sent to them on Mainnet or any other live network WILL BE LOST.
 
   Error: Transaction reverted without a reason
 
-[31meth_call[0m
+[31meth_estimateGas[0m
   Contract call:       UniversityContract#addCourseToCurriculum
   From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+  Value:               0 ETH
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_estimateGas[0m
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
   To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
 
   Error: Transaction reverted without a reason
 
-[32meth_getTransactionCount[0m
-[32meth_getBlockByNumber[0m
-[32meth_estimateGas[0m
-[32meth_call[0m
-  Contract deployment: CurriculumContract
-  Contract address:    0x948b3c65b89df0b4894abe91e6d02fe579834f8f
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
 
-[32meth_sendTransaction[0m
-  Contract deployment: CurriculumContract
-  Contract address:    0x948b3c65b89df0b4894abe91e6d02fe579834f8f
-  Transaction:         0xfb4ca502f92fd2fbbb3286a6e90ab9e2368fad93d937e7f98c0b9b284b8deb52
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[32meth_getBalance[0m
+[32meth_getBalance (2)[0m
+[32meth_feeHistory[0m
+[32meth_getTransactionCount[0m
+[32meth_sendRawTransaction[0m
+  Contract call:       UniversityContract#addACourse
+  Transaction:         0xeda609a7e242af5afbbe6c0a68f44b584b538405c081d0086aace8d965c61584
   From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
   Value:               0 ETH
-  Gas used:            2486397 of 2486397
-  Block #4:            0x5a64c3e363219ac4f04273bb458e07b07b87cf5705c1e0a7a0884250c612d09e
+  Gas used:            97337 of 97337
+  Block #14:           0x3f29151366d8c12c6e91480663716ca68b157d9d42a35b90d10e75c45ee8a328
 
-[32meth_getTransactionByHash[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionReceipt[0m
-[32meth_getTransactionCount[0m
-[32meth_getBlockByNumber[0m
-[32meth_estimateGas[0m
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
 [32meth_call[0m
-  Contract call:       DegreeToken#addUniversity
+  WARNING: Calling an account which is not a contract
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x420000000000000000000000000000000000000f
+
+[32meth_blockNumber[0m
+[32meth_getTransactionReceipt[0m
+[32meth_getBlockByHash[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_getBlockByNumber[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[32meth_getTransactionByHash[0m
+[32meth_call[0m
+  Contract call:       DegreeToken#roles
   From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
   To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
 
-[32meth_sendTransaction[0m
-  Contract call:       DegreeToken#addUniversity
-  Transaction:         0x36ab46ea5c95afca09b99726f6b24baf50aa7812156f4a3663a2f509a1f04c21
-  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+[32meth_call[0m
+  Contract call:       DegreeToken#universityToUniversityContract
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
   To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
-  Value:               0 ETH
-  Gas used:            227331 of 227331
-  Block #5:            0x0a4c9ccb807dbf09134389fe635dd00b08dcf57cc66b5f8647ca8bdf24f58b40
 
-[32meth_getTransactionByHash[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionReceipt[0m
-[32meth_chainId[0m
-[32mhardhat_metadata[0m
-[32meth_accounts[0m
-[32mhardhat_getAutomine[0m
-[32meth_chainId[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionCount[0m
-[32meth_getTransactionCount (2)[0m
-[32meth_getTransactionCount (3)[0m
-[32meth_getTransactionCount (4)[0m
-[32meth_getTransactionCount (5)[0m
-[32meth_getTransactionCount (6)[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionCount[0m
-[32meth_getBlockByNumber[0m
-[32meth_estimateGas[0m
 [32meth_call[0m
-  Contract deployment: DegreeToken
-  Contract address:    0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+  Contract call:       UniversityContract#curriculumsId
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       UniversityContract#curriculums
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       CurriculumContract#curriculumDetail
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x71c95911e9a5d330f4d621842ec243ee1343292e
+
+[32meth_call[0m
+  Contract call:       UniversityContract#coursesId
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       UniversityContract#courses
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       UniversityContract#courses
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       UniversityContract#courses
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+[32meth_call[0m
+  Contract call:       CurriculumContract#coursesId
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x71c95911e9a5d330f4d621842ec243ee1343292e
+
+[32meth_call[0m
+  Contract call:       CurriculumContract#courses
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x71c95911e9a5d330f4d621842ec243ee1343292e
+
+[32meth_call[0m
+  Contract call:       CurriculumContract#courses
+  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  To:                  0x71c95911e9a5d330f4d621842ec243ee1343292e
+
+[32meth_estimateGas[0m
+[32meth_blockNumber[0m
+[32meth_getCode[0m
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
   From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
 
-[32meth_sendTransaction[0m
-  Contract deployment: DegreeToken
-  Contract address:    0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
-  Transaction:         0x623afe9c5553b0b515667f6343bd2f024ac6e3e37153f757bd16395c60f3e06c
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
   From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
-  Value:               0 ETH
-  Gas used:            2780296 of 2780296
-  Block #6:            0x3eb6359c82f5857a45950d62a19502a8ffea6f2cfe8c78284fb96d356075dbb7
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
 
-[32meth_getTransactionByHash[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionReceipt[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionCount[0m
-[32meth_getBlockByNumber[0m
-[32meth_estimateGas[0m
-[32meth_call[0m
-  Contract deployment: UniversityContract
-  Contract address:    0x712516e61c8b383df4a63cfe83d7701bce54b03e
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+  Error: Transaction reverted without a reason
 
-[32meth_sendTransaction[0m
-  Contract deployment: UniversityContract
-  Contract address:    0x712516e61c8b383df4a63cfe83d7701bce54b03e
-  Transaction:         0x23e197ae7a11b645ff8450e713e066f9af0331a88b8439f2ea0578906b41ca30
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-  Value:               0 ETH
-  Gas used:            1812168 of 1812168
-  Block #7:            0xaa2cd65cef2fd3a26cce0e70bb063ae994aa074c82538fa4d1357855a72173fa
-
-[32meth_getTransactionByHash[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionReceipt[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionCount[0m
-[32meth_getBlockByNumber[0m
-[32meth_estimateGas[0m
-[32meth_call[0m
-  Contract deployment: CurriculumContract
-  Contract address:    0xbcf26943c0197d2ee0e5d05c716be60cc2761508
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-
-[32meth_sendTransaction[0m
-  Contract deployment: CurriculumContract
-  Contract address:    0xbcf26943c0197d2ee0e5d05c716be60cc2761508
-  Transaction:         0x81bc50b764145801599f70b194fc34d694947e1a58eb5eae7f169cf94792b243
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-  Value:               0 ETH
-  Gas used:            2486397 of 2486397
-  Block #8:            0x1cc5f5be3b1c15842464a46fe787fbf58f78352e7200448ca75cbaaba7ea7c63
-
-[32meth_getTransactionByHash[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionReceipt[0m
-[32meth_getTransactionCount[0m
-[32meth_getBlockByNumber[0m
-[32meth_estimateGas[0m
-[32meth_call[0m
-  Contract call:       DegreeToken#addUniversity
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
   From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
-  To:                  0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
 
-[32meth_sendTransaction[0m
-  Contract call:       DegreeToken#addUniversity
-  Transaction:         0xb4a92e29c92693fca41bda63ea2a4098fc59786a332161696b14481b10ace952
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
   From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
-  To:                  0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
-  Value:               0 ETH
-  Gas used:            227331 of 227331
-  Block #9:            0xc9878528bd771639307853acb286c16274ba7ac3a583cc8eab85d531c4ced4fb
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
 
-[32meth_getTransactionByHash[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionReceipt[0m
-[32meth_getBlockByNumber[0m
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[32meth_getBalance[0m
+[32meth_getBalance (2)[0m
 [32meth_getTransactionCount[0m
-[32meth_getBlockByNumber[0m
-[32meth_estimateGas[0m
-[32meth_call[0m
-  Contract call:       UniversityContract#addACurriculum
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-  To:                  0x712516e61c8b383df4a63cfe83d7701bce54b03e
-
-[32meth_sendTransaction[0m
-  Contract call:       UniversityContract#addACurriculum
-  Transaction:         0x5c05c0f4941d1c0594f827315183def7d9c9d29b652d9d63b521f1c34bd9a53e
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-  To:                  0x712516e61c8b383df4a63cfe83d7701bce54b03e
-  Value:               0 ETH
-  Gas used:            122333 of 122333
-  Block #10:           0x434eace53fab0475df17b010af9e3d46147c90ab1918d9d41882f8715f1a8a81
-
-[32meth_getTransactionByHash[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionReceipt[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionCount[0m
-[32meth_getBlockByNumber[0m
-[32meth_estimateGas[0m
-[32meth_call[0m
-  Contract call:       UniversityContract#addACourse
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-  To:                  0x712516e61c8b383df4a63cfe83d7701bce54b03e
-
-[32meth_sendTransaction[0m
-  Contract call:       UniversityContract#addACourse
-  Transaction:         0xfa072ef207c86519168c4959bda599d118be15ccba74ecf5cae0301b61ee4ae8
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-  To:                  0x712516e61c8b383df4a63cfe83d7701bce54b03e
-  Value:               0 ETH
-  Gas used:            94537 of 94537
-  Block #11:           0x358ff6e51f63b01ca9abf618b12b2110017586f20652509db6ff25212bc16a63
-
-[32meth_getTransactionByHash[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionReceipt[0m
-[32meth_getTransactionCount[0m
-[32meth_getBlockByNumber[0m
-[32meth_estimateGas[0m
-[32meth_call[0m
+[32meth_feeHistory[0m
+[32meth_sendRawTransaction[0m
   Contract call:       UniversityContract#addCourseToCurriculum
+  Transaction:         0x776eaf45ffa6cfd3493fd6eb8b8ee7b2816a74a3baa8f4d8307583450df210df
   From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-  To:                  0x712516e61c8b383df4a63cfe83d7701bce54b03e
-
-[32meth_sendTransaction[0m
-  Contract call:       UniversityContract#addCourseToCurriculum
-  Transaction:         0x361dcc69e53f5cedbba43cc4aa7fcb74d56fa37e9d286c83a27b5c3a211ac515
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-  To:                  0x712516e61c8b383df4a63cfe83d7701bce54b03e
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
   Value:               0 ETH
-  Gas used:            143411 of 145091
-  Block #12:           0xd5c416a9a9b23c0e462a11572510a34d95615aa6c712a330ccf077ab5b21cbb9
+  Gas used:            121688 of 123589
+  Block #15:           0x357ce56b0ce9faab3266c08be83de04573fdf8cd80421ae18c8af70ba5e03888
 
-[32meth_getTransactionByHash[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionReceipt[0m
-[32meth_getBlockByNumber[0m
-[32meth_getTransactionCount[0m
-[32meth_getBlockByNumber[0m
-[32meth_estimateGas[0m
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
 [32meth_call[0m
-  Contract call:       UniversityContract#addAStudent
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-  To:                  0x712516e61c8b383df4a63cfe83d7701bce54b03e
+  WARNING: Calling an account which is not a contract
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x420000000000000000000000000000000000000f
 
-[32meth_sendTransaction[0m
-  Contract call:       UniversityContract#addAStudent
-  Transaction:         0x118481036adb7f84b0257dc8bda85c3a6ab4f9c05f609589225021b959d7da39
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-  To:                  0x712516e61c8b383df4a63cfe83d7701bce54b03e
-  Value:               0 ETH
-  Gas used:            183138 of 183138
-  Block #13:           0xe51d51589669980a054567603e2fada1092fb61efee949cd68ec9de203be99ba
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
 
-[32meth_getTransactionByHash[0m
-[32meth_getBlockByNumber[0m
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
 [32meth_getTransactionReceipt[0m
-[32meth_getTransactionCount[0m
-[32meth_getBlockByNumber[0m
-[32meth_estimateGas[0m
-[32meth_call[0m
-  Contract call:       UniversityContract#addStudentToCurriculum
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-  To:                  0x712516e61c8b383df4a63cfe83d7701bce54b03e
+[32meth_getBlockByHash[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
 
-[32meth_sendTransaction[0m
-  Contract call:       UniversityContract#addStudentToCurriculum
-  Transaction:         0x532e6a4e1cb50e37240389f85da578d8c1c3a7d722133592f9b14b29c672007e
-  From:                0x70997970c51812dc3a010c7d01b50e0d17dc79c8
-  To:                  0x712516e61c8b383df4a63cfe83d7701bce54b03e
-  Value:               0 ETH
-  Gas used:            169181 of 171163
-  Block #14:           0x06469998eb6fe53d0a7e8c137030cb91f38da909a4dd60307d53c7854777c09c
+  Error: Transaction reverted without a reason
 
+[32meth_blockNumber[0m
 [32meth_getTransactionByHash[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
 [32meth_getBlockByNumber[0m
-[32meth_getTransactionReceipt[0m
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       UniversityContract#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8464135c8f25da09e49bc8782676a84730c318bc
+
+  Error: Transaction reverted without a reason
+
+[32meth_feeHistory[0m
