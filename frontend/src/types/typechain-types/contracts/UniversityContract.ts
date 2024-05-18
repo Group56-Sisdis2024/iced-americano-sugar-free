@@ -26,18 +26,47 @@ import type {
 export interface UniversityContractInterface extends Interface {
   getFunction(
     nameOrSignature:
+      | "addACourse"
       | "addACurriculum"
+      | "addAStudent"
+      | "addCourseToCurriculum"
+      | "addStudentToCurriculum"
+      | "courses"
+      | "coursesId"
       | "curriculums"
       | "curriculumsId"
+      | "students"
+      | "studentsId"
       | "universityInfo"
   ): FunctionFragment;
 
   getEvent(nameOrSignatureOrTopic: "CurriculumAdded"): EventFragment;
 
   encodeFunctionData(
+    functionFragment: "addACourse",
+    values: [string, BigNumberish]
+  ): string;
+  encodeFunctionData(
     functionFragment: "addACurriculum",
     values: [AddressLike]
   ): string;
+  encodeFunctionData(
+    functionFragment: "addAStudent",
+    values: [AddressLike, string, string, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "addCourseToCurriculum",
+    values: [BigNumberish, BigNumberish, boolean]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "addStudentToCurriculum",
+    values: [BigNumberish, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "courses",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(functionFragment: "coursesId", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "curriculums",
     values: [BigNumberish]
@@ -47,14 +76,37 @@ export interface UniversityContractInterface extends Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
+    functionFragment: "students",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "studentsId",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "universityInfo",
     values?: undefined
   ): string;
 
+  decodeFunctionResult(functionFragment: "addACourse", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "addACurriculum",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(
+    functionFragment: "addAStudent",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "addCourseToCurriculum",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "addStudentToCurriculum",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "courses", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "coursesId", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "curriculums",
     data: BytesLike
@@ -63,6 +115,8 @@ export interface UniversityContractInterface extends Interface {
     functionFragment: "curriculumsId",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "students", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "studentsId", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "universityInfo",
     data: BytesLike
@@ -124,15 +178,82 @@ export interface UniversityContract extends BaseContract {
     event?: TCEvent
   ): Promise<this>;
 
+  addACourse: TypedContractMethod<
+    [name: string, credits: BigNumberish],
+    [void],
+    "nonpayable"
+  >;
+
   addACurriculum: TypedContractMethod<
     [curAddress: AddressLike],
     [void],
     "nonpayable"
   >;
 
+  addAStudent: TypedContractMethod<
+    [
+      _address: AddressLike,
+      npm: string,
+      name: string,
+      accumulatedCredit: BigNumberish
+    ],
+    [void],
+    "nonpayable"
+  >;
+
+  addCourseToCurriculum: TypedContractMethod<
+    [courseId: BigNumberish, curriculumId: BigNumberish, isMandatory: boolean],
+    [void],
+    "nonpayable"
+  >;
+
+  addStudentToCurriculum: TypedContractMethod<
+    [studentId: BigNumberish, curriculumId: BigNumberish],
+    [void],
+    "nonpayable"
+  >;
+
+  courses: TypedContractMethod<
+    [arg0: BigNumberish],
+    [[bigint, string, bigint] & { id: bigint; name: string; credits: bigint }],
+    "view"
+  >;
+
+  coursesId: TypedContractMethod<[], [bigint], "view">;
+
   curriculums: TypedContractMethod<[arg0: BigNumberish], [string], "view">;
 
   curriculumsId: TypedContractMethod<[], [bigint], "view">;
+
+  students: TypedContractMethod<
+    [arg0: BigNumberish],
+    [
+      [
+        string,
+        bigint,
+        string,
+        string,
+        bigint,
+        bigint,
+        bigint,
+        bigint,
+        bigint
+      ] & {
+        _address: string;
+        id: bigint;
+        npm: string;
+        name: string;
+        accumulatedCredits: bigint;
+        grantedDegreeId: bigint;
+        curriculumId: bigint;
+        totalCreditsTaken: bigint;
+        weightedTotalGrade: bigint;
+      }
+    ],
+    "view"
+  >;
+
+  studentsId: TypedContractMethod<[], [bigint], "view">;
 
   universityInfo: TypedContractMethod<
     [],
@@ -151,13 +272,88 @@ export interface UniversityContract extends BaseContract {
   ): T;
 
   getFunction(
+    nameOrSignature: "addACourse"
+  ): TypedContractMethod<
+    [name: string, credits: BigNumberish],
+    [void],
+    "nonpayable"
+  >;
+  getFunction(
     nameOrSignature: "addACurriculum"
   ): TypedContractMethod<[curAddress: AddressLike], [void], "nonpayable">;
+  getFunction(
+    nameOrSignature: "addAStudent"
+  ): TypedContractMethod<
+    [
+      _address: AddressLike,
+      npm: string,
+      name: string,
+      accumulatedCredit: BigNumberish
+    ],
+    [void],
+    "nonpayable"
+  >;
+  getFunction(
+    nameOrSignature: "addCourseToCurriculum"
+  ): TypedContractMethod<
+    [courseId: BigNumberish, curriculumId: BigNumberish, isMandatory: boolean],
+    [void],
+    "nonpayable"
+  >;
+  getFunction(
+    nameOrSignature: "addStudentToCurriculum"
+  ): TypedContractMethod<
+    [studentId: BigNumberish, curriculumId: BigNumberish],
+    [void],
+    "nonpayable"
+  >;
+  getFunction(
+    nameOrSignature: "courses"
+  ): TypedContractMethod<
+    [arg0: BigNumberish],
+    [[bigint, string, bigint] & { id: bigint; name: string; credits: bigint }],
+    "view"
+  >;
+  getFunction(
+    nameOrSignature: "coursesId"
+  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
     nameOrSignature: "curriculums"
   ): TypedContractMethod<[arg0: BigNumberish], [string], "view">;
   getFunction(
     nameOrSignature: "curriculumsId"
+  ): TypedContractMethod<[], [bigint], "view">;
+  getFunction(
+    nameOrSignature: "students"
+  ): TypedContractMethod<
+    [arg0: BigNumberish],
+    [
+      [
+        string,
+        bigint,
+        string,
+        string,
+        bigint,
+        bigint,
+        bigint,
+        bigint,
+        bigint
+      ] & {
+        _address: string;
+        id: bigint;
+        npm: string;
+        name: string;
+        accumulatedCredits: bigint;
+        grantedDegreeId: bigint;
+        curriculumId: bigint;
+        totalCreditsTaken: bigint;
+        weightedTotalGrade: bigint;
+      }
+    ],
+    "view"
+  >;
+  getFunction(
+    nameOrSignature: "studentsId"
   ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
     nameOrSignature: "universityInfo"

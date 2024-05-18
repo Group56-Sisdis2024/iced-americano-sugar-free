@@ -101,6 +101,7 @@ export interface CurriculumContractInterface extends Interface {
       | "getStudentInformation"
       | "mandatoryCourseIDs"
       | "owner"
+      | "ownerContract"
       | "students"
       | "studentsId"
       | "toggleActive"
@@ -148,6 +149,10 @@ export interface CurriculumContractInterface extends Interface {
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
+    functionFragment: "ownerContract",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "students",
     values: [BigNumberish]
   ): string;
@@ -188,6 +193,10 @@ export interface CurriculumContractInterface extends Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "ownerContract",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "students", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "studentsId", data: BytesLike): Result;
   decodeFunctionResult(
@@ -307,6 +316,8 @@ export interface CurriculumContract extends BaseContract {
 
   owner: TypedContractMethod<[], [string], "view">;
 
+  ownerContract: TypedContractMethod<[], [string], "view">;
+
   students: TypedContractMethod<
     [arg0: BigNumberish],
     [
@@ -416,6 +427,9 @@ export interface CurriculumContract extends BaseContract {
   ): TypedContractMethod<[arg0: BigNumberish], [bigint], "view">;
   getFunction(
     nameOrSignature: "owner"
+  ): TypedContractMethod<[], [string], "view">;
+  getFunction(
+    nameOrSignature: "ownerContract"
   ): TypedContractMethod<[], [string], "view">;
   getFunction(
     nameOrSignature: "students"

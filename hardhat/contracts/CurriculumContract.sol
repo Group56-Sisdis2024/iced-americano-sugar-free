@@ -10,6 +10,7 @@ contract CurriculumContract {
     using Library for Library.AcademicRecord;
 
     address public owner;
+    address public ownerContract; // Address of university contract of the owner
     DegreeToken internal pddikti;
     Library.Curriculum public curriculumDetail;
 
@@ -25,8 +26,9 @@ contract CurriculumContract {
 
     uint256[] public mandatoryCourseIDs;
 
-    constructor(address _pddikti, string memory name, string memory major, uint256 minimumCredits){
+    constructor(address _pddikti, address _ownerContract, string memory name, string memory major, uint256 minimumCredits){
         owner = msg.sender;
+        ownerContract = _ownerContract;
         curriculumDetail = Library.Curriculum(
             address(this),
             name,
@@ -37,7 +39,7 @@ contract CurriculumContract {
         pddikti = DegreeToken(_pddikti);
     }
     modifier onlyUniversity() {
-        require(msg.sender == owner);
+        require(msg.sender == owner || msg.sender == ownerContract);
         _;
     }
 
@@ -54,7 +56,6 @@ contract CurriculumContract {
         uint256 accumulatedCredit // if pindah kampus, kreditnya kan ada transfer sks
     ) external onlyUniversity {
         require(curriculumDetail.active, "Current Curriculum not active");
-        require(pddikti.registerAStudent(_address), "Already registered");
         students[studentsId] = Library.Student(
                     _address,
                     studentsId,

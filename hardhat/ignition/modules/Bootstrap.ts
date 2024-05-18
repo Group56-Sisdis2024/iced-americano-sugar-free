@@ -22,16 +22,18 @@ const BootstrapModule = buildModule("BootstrapModule", (m)=>{
     })
     //3
     const registerUni = m.call(degreeToken, "addUniversity", [univContract, univAccount, "Universitas Indonesia"],{
-        from: pddiktiAccount
+        from: pddiktiAccount,
+        after: [univContract]
     })
     //4
-    const curriculumContract = m.contract("CurriculumContract", [degreeToken, "Kurikulum 2020", "Sistem Informasi", 144], {
+    const curriculumContract = m.contract("CurriculumContract", [degreeToken, univContract, "Kurikulum 2020", "Sistem Informasi", 144], {
         from: univAccount,
+        after: [univContract]
     })
     //5
     const registerCurriculum = m.call(univContract,"addACurriculum", [curriculumContract], {
         from: univAccount,
-        after: [registerUni]
+        after: [curriculumContract]
     })
     //6 
     const createCourses = ()=>{
@@ -42,9 +44,15 @@ const BootstrapModule = buildModule("BootstrapModule", (m)=>{
         }))
     }
     for (const course of createCourses()){
-        m.call(curriculumContract, "addACourse", [course.name, course.credits, course.isMandatory], {
+        m.call(univContract, "addACourse", [course.name, course.credits], {
             from: univAccount,
+            after: [registerCurriculum],
             id: `AddACourseOf${course.name}`
+        })
+        m.call(univContract, "addCourseToCurriculum", [0, 0, course.isMandatory], {
+            from: univAccount,
+            after: [registerCurriculum],
+            id: `AddCourseToCurriculum${course.name}`
         })
     }
     return {degreeToken, univContract, curriculumContract}
