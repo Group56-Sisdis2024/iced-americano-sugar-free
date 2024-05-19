@@ -26,7 +26,7 @@ const BootstrapModule = buildModule("BootstrapModule", (m)=>{
         after: [univContract]
     })
     //4
-    const curriculumContract = m.contract("CurriculumContract", [degreeToken, univContract, "Kurikulum 2020", "Sistem Informasi", 144], {
+    const curriculumContract = m.contract("CurriculumContract", [degreeToken, univContract, "Kurikulum 2020", "Sistem Informasi", 2], {
         from: univAccount,
         after: [univContract]
     })

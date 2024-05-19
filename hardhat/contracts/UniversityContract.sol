@@ -100,4 +100,10 @@ contract UniversityContract {
             isMandatory
         );
     }
+
+    function getStudentInformation(uint256 studentId) external view returns (Library.Student memory, Library.AcademicRecord[] memory){
+        require(studentId < studentsId);
+        CurriculumContract curriculum = curriculums[students[studentId].curriculumId];
+        return curriculum.getStudentInformation(studentId);
+    }
 }

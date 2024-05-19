@@ -1,7 +1,7 @@
 "use client"
 
 import { ROLE } from "@/types/role";
-import { CurriculumContract__factory } from "@/types/typechain-types";
+import { CurriculumContract__factory, DegreeToken__factory, UniversityContract__factory } from "@/types/typechain-types";
 import { useWallet } from "@/utils/walletCtx";
 import { withAuth } from "@/utils/withAuth";
 import { withWallet } from "@/utils/withWallet";
@@ -12,12 +12,12 @@ import toast from "react-hot-toast";
 import { Library } from "@/types/typechain-types/contracts/CurriculumContract";
 import { useRouter } from "next/navigation";
 
-const curriculumContractAddress = process.env.NEXT_PUBLIC_CURRICULUM_CONTRACT_ADDRESS || "";
+const degreeContractAddress = process.env.NEXT_PUBLIC_DEGREE_TOKEN_ADDRESS || "";
 
 function UniversityAddAcademicRecord() {
     const router = useRouter();
-    const { provider } = useWallet();
-    const [students, setStudents] = useState<{ namaNpm: string, academicRecords: Library.AcademicRecordStructOutput[] }[]>([]);
+    const { provider, account } = useWallet();
+    const [students, setStudents] = useState<{ namaNpm: string, curriculumId: bigint, academicRecords: Library.AcademicRecordStructOutput[] }[]>([]);
     const [courses, setCourses] = useState<string[]>([]);
     const [formData, setFormData] = useState({
         studentId: -1,
@@ -32,16 +32,21 @@ function UniversityAddAcademicRecord() {
         const f = async () => {
             if (provider) {
                 const signer = await provider.getSigner();
-                const contract = CurriculumContract__factory.connect(curriculumContractAddress, signer);
+                const degreeContract = DegreeToken__factory.connect(degreeContractAddress, signer);
+                const universityContract = UniversityContract__factory.connect(await degreeContract.universityToUniversityContract(account), signer);
 
-                for (let i = 0; i < await contract.coursesId(); i++) {
-                    let course = await contract.courses(i);
+                for (let i = 0; i < await universityContract.coursesId(); i++) {
+                    let course = await universityContract.courses(i);
                     setCourses(courses => [...courses, `${course.name}, SKS: ${course.credits}`])
                 }
 
-                for (let i = 0; i < await contract.studentsId(); i++) {
-                    let student = await contract.getStudentInformation(i);
-                    setStudents(students => [...students, { namaNpm: `${student[0].name}, NPM: ${student[0].npm}`, academicRecords: student[1] }])
+                for (let i = 0; i < await universityContract.studentsId(); i++) {
+                    let student = await universityContract.getStudentInformation(i);
+                    setStudents(students => [...students, {
+                        namaNpm: `${student[0].name}, NPM: ${student[0].npm}`,
+                        curriculumId: student[0].curriculumId,
+                        academicRecords: student[1]
+                    }])
                 }
             }
         }
@@ -84,7 +89,9 @@ function UniversityAddAcademicRecord() {
 
         if (provider) {
             const signer = await provider.getSigner();
-            const contract = CurriculumContract__factory.connect(curriculumContractAddress, signer);
+            const degreeContract = DegreeToken__factory.connect(degreeContractAddress, signer);
+            const universityContract = UniversityContract__factory.connect(await degreeContract.universityToUniversityContract(account), signer);
+            const contract = CurriculumContract__factory.connect(await universityContract.curriculums(students[formData.studentId].curriculumId), signer);
 
             await contract
                 .addAnAcademicRecord(

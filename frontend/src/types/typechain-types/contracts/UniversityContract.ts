@@ -23,6 +23,73 @@ import type {
   TypedContractMethod,
 } from "../common";
 
+export declare namespace Library {
+  export type StudentStruct = {
+    _address: AddressLike;
+    id: BigNumberish;
+    npm: string;
+    name: string;
+    accumulatedCredits: BigNumberish;
+    grantedDegreeId: BigNumberish;
+    curriculumId: BigNumberish;
+    totalCreditsTaken: BigNumberish;
+    weightedTotalGrade: BigNumberish;
+  };
+
+  export type StudentStructOutput = [
+    _address: string,
+    id: bigint,
+    npm: string,
+    name: string,
+    accumulatedCredits: bigint,
+    grantedDegreeId: bigint,
+    curriculumId: bigint,
+    totalCreditsTaken: bigint,
+    weightedTotalGrade: bigint
+  ] & {
+    _address: string;
+    id: bigint;
+    npm: string;
+    name: string;
+    accumulatedCredits: bigint;
+    grantedDegreeId: bigint;
+    curriculumId: bigint;
+    totalCreditsTaken: bigint;
+    weightedTotalGrade: bigint;
+  };
+
+  export type AcademicRecordStruct = {
+    semester: string;
+    status: string;
+    totalCreditsPassed: BigNumberish;
+    passedCoursesId: BigNumberish[];
+    takenCoursesId: BigNumberish[];
+    takenCoursesGrade: BigNumberish[];
+    totalCreditsTaken: BigNumberish;
+    weightedTotalGrade: BigNumberish;
+  };
+
+  export type AcademicRecordStructOutput = [
+    semester: string,
+    status: string,
+    totalCreditsPassed: bigint,
+    passedCoursesId: bigint[],
+    takenCoursesId: bigint[],
+    takenCoursesGrade: bigint[],
+    totalCreditsTaken: bigint,
+    weightedTotalGrade: bigint
+  ] & {
+    semester: string;
+    status: string;
+    totalCreditsPassed: bigint;
+    passedCoursesId: bigint[];
+    takenCoursesId: bigint[];
+    takenCoursesGrade: bigint[];
+    totalCreditsTaken: bigint;
+    weightedTotalGrade: bigint;
+  };
+}
+
 export interface UniversityContractInterface extends Interface {
   getFunction(
     nameOrSignature:
@@ -35,6 +102,7 @@ export interface UniversityContractInterface extends Interface {
       | "coursesId"
       | "curriculums"
       | "curriculumsId"
+      | "getStudentInformation"
       | "students"
       | "studentsId"
       | "universityInfo"
@@ -76,6 +144,10 @@ export interface UniversityContractInterface extends Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
+    functionFragment: "getStudentInformation",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
     functionFragment: "students",
     values: [BigNumberish]
   ): string;
@@ -113,6 +185,10 @@ export interface UniversityContractInterface extends Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "curriculumsId",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getStudentInformation",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "students", data: BytesLike): Result;
@@ -225,6 +301,12 @@ export interface UniversityContract extends BaseContract {
 
   curriculumsId: TypedContractMethod<[], [bigint], "view">;
 
+  getStudentInformation: TypedContractMethod<
+    [studentId: BigNumberish],
+    [[Library.StudentStructOutput, Library.AcademicRecordStructOutput[]]],
+    "view"
+  >;
+
   students: TypedContractMethod<
     [arg0: BigNumberish],
     [
@@ -323,6 +405,13 @@ export interface UniversityContract extends BaseContract {
   getFunction(
     nameOrSignature: "curriculumsId"
   ): TypedContractMethod<[], [bigint], "view">;
+  getFunction(
+    nameOrSignature: "getStudentInformation"
+  ): TypedContractMethod<
+    [studentId: BigNumberish],
+    [[Library.StudentStructOutput, Library.AcademicRecordStructOutput[]]],
+    "view"
+  >;
   getFunction(
     nameOrSignature: "students"
   ): TypedContractMethod<
