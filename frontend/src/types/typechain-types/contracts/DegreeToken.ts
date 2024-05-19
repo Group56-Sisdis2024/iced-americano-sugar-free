@@ -50,6 +50,7 @@ export interface DegreeTokenInterface extends Interface {
       | "uniLists"
       | "uniListsId"
       | "universities"
+      | "universityToUniversityContract"
   ): FunctionFragment;
 
   getEvent(
@@ -140,6 +141,10 @@ export interface DegreeTokenInterface extends Interface {
     functionFragment: "universities",
     values: [AddressLike]
   ): string;
+  encodeFunctionData(
+    functionFragment: "universityToUniversityContract",
+    values: [AddressLike]
+  ): string;
 
   decodeFunctionResult(
     functionFragment: "addACurriculum",
@@ -205,6 +210,10 @@ export interface DegreeTokenInterface extends Interface {
   decodeFunctionResult(functionFragment: "uniListsId", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "universities",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "universityToUniversityContract",
     data: BytesLike
   ): Result;
 }
@@ -439,6 +448,12 @@ export interface DegreeToken extends BaseContract {
     "view"
   >;
 
+  universityToUniversityContract: TypedContractMethod<
+    [arg0: AddressLike],
+    [string],
+    "view"
+  >;
+
   getFunction<T extends ContractMethod = ContractMethod>(
     key: string | FunctionFragment
   ): T;
@@ -576,6 +591,9 @@ export interface DegreeToken extends BaseContract {
     ],
     "view"
   >;
+  getFunction(
+    nameOrSignature: "universityToUniversityContract"
+  ): TypedContractMethod<[arg0: AddressLike], [string], "view">;
 
   getEvent(
     key: "Approval"
