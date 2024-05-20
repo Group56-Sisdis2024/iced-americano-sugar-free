@@ -49,7 +49,7 @@ function StudentPage() {
             }
         }
         f()
-    }, []);
+    }, [provider]);
 
     const hasSearchFilter = Boolean(filterValue);
     const filteredItems = useMemo(() => {
@@ -62,7 +62,7 @@ function StudentPage() {
         }
 
         return filteredStudent;
-    }, [studentList, filterValue]);
+    }, [studentList, filterValue, hasSearchFilter]);
 
     const topContent = useMemo(() => {
         return (
@@ -74,7 +74,7 @@ function StudentPage() {
                 onValueChange={onSearchChange}
             />
         );
-    }, [filterValue, onSearchChange]);
+    }, [filterValue, onSearchChange, onClear]);
 
     const columns = [
         {

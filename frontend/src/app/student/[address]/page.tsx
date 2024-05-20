@@ -91,7 +91,7 @@ function StudentInfoPage({ params }: { params: { address: string } }) {
             }
         }
         f()
-    }, []);
+    }, [params.address, provider]);
 
     if (student == undefined) {
         return (

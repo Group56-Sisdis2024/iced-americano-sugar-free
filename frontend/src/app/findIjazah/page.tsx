@@ -52,7 +52,7 @@ function FindIjazahPage() {
             }
         }
         f()
-    }, []);
+    }, [provider]);
 
     const hasSearchFilter = Boolean(filterValue);
     const filteredItems = useMemo(() => {
@@ -65,7 +65,7 @@ function FindIjazahPage() {
         }
     
         return filteredStudent;
-      }, [studentList, filterValue]);
+      }, [studentList, filterValue, hasSearchFilter]);
 
     const topContent = useMemo(() => {
         return (
@@ -77,7 +77,7 @@ function FindIjazahPage() {
                 onValueChange={onSearchChange}
             />
         );
-    }, [filterValue, onSearchChange]);
+    }, [filterValue, onSearchChange, onClear]);
 
     const columns = [
         {
