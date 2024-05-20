@@ -65,6 +65,7 @@ export declare namespace Library {
     takenCoursesGrade: BigNumberish[];
     totalCreditsTaken: BigNumberish;
     weightedTotalGrade: BigNumberish;
+    weightedTotalPassedGrade: BigNumberish;
   };
 
   export type AcademicRecordStructOutput = [
@@ -75,7 +76,8 @@ export declare namespace Library {
     takenCoursesId: bigint[],
     takenCoursesGrade: bigint[],
     totalCreditsTaken: bigint,
-    weightedTotalGrade: bigint
+    weightedTotalGrade: bigint,
+    weightedTotalPassedGrade: bigint
   ] & {
     semester: string;
     status: string;
@@ -85,6 +87,7 @@ export declare namespace Library {
     takenCoursesGrade: bigint[];
     totalCreditsTaken: bigint;
     weightedTotalGrade: bigint;
+    weightedTotalPassedGrade: bigint;
   };
 }
 

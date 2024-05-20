@@ -37,6 +37,7 @@ library Library {
         uint256[] takenCoursesGrade; // for semesterGPA
         uint256 totalCreditsTaken; // to calculate semester gpa
         uint256 weightedTotalGrade; // to calculate semester gpa
+        uint256 weightedTotalPassedGrade; // to calculate semester cgpa
     }
 
     struct Course{

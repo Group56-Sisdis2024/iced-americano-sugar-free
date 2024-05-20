@@ -51,7 +51,7 @@ function UniversityAddAcademicRecord() {
             }
         }
         f();
-    }, []);
+    }, [account, provider]);
 
     const handleChange = (e: { target: { name: string; value: any; }; }) => {
         const { name, value } = e.target;

@@ -4,16 +4,16 @@ import { DegreeToken__factory, UniversityContract__factory } from "@/types/typec
 import { useWallet } from "@/utils/walletCtx";
 import { withAuth } from "@/utils/withAuth";
 import { withWallet } from "@/utils/withWallet";
-import { NextUIProvider, Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Input } from "@nextui-org/react";
+import { NextUIProvider, Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue, Input } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 const degreeContractAddress = process.env.NEXT_PUBLIC_DEGREE_TOKEN_ADDRESS || "";
 
-function FindIjazahPage() {
+function StudentPage() {
     const router = useRouter();
     const { provider } = useWallet();
-    const [studentList, setStudentList] = useState<{ address: string, degreeId: string, studentName: string, npm: string, uniName: string }[]>([]);
+    const [studentList, setStudentList] = useState<{ address: string, studentName: string, npm: string, uniName: string }[]>([]);
     const [filterValue, setFilterValue] = useState("");
 
     const onClear = useCallback(() => {
@@ -38,15 +38,12 @@ function FindIjazahPage() {
                     let uniContract = UniversityContract__factory.connect(uni.uniAdress, signer);
                     for (let j = 0; j < await uniContract.studentsId(); j++) {
                         let [student, _] = await uniContract.getStudentInformation(j);
-                        if (student.grantedDegreeId != BigInt(0)) {
-                            setStudentList(students => [...students, {
-                                address: student._address,
-                                degreeId: student.grantedDegreeId.toString(),
-                                studentName: student.name,
-                                npm: student.npm,
-                                uniName: uni.name
-                            }])
-                        }
+                        setStudentList(students => [...students, {
+                            address: student._address,
+                            studentName: student.name,
+                            npm: student.npm,
+                            uniName: uni.name
+                        }])
                     }
                 }
             }
@@ -57,15 +54,15 @@ function FindIjazahPage() {
     const hasSearchFilter = Boolean(filterValue);
     const filteredItems = useMemo(() => {
         let filteredStudent = [...studentList];
-    
+
         if (hasSearchFilter) {
             filteredStudent = filteredStudent.filter((student) =>
-            student.studentName.toLowerCase().includes(filterValue.toLowerCase()),
-          );
+                student.studentName.toLowerCase().includes(filterValue.toLowerCase()),
+            );
         }
-    
+
         return filteredStudent;
-      }, [studentList, filterValue, hasSearchFilter]);
+    }, [studentList, filterValue, hasSearchFilter]);
 
     const topContent = useMemo(() => {
         return (
@@ -80,10 +77,6 @@ function FindIjazahPage() {
     }, [filterValue, onSearchChange, onClear]);
 
     const columns = [
-        {
-            key: "degreeId",
-            label: "DEGREE ID",
-        },
         {
             key: "sutdentName",
             label: "STUDENT NAME",
@@ -114,7 +107,6 @@ function FindIjazahPage() {
                     <TableBody items={filteredItems} emptyContent={"No rows to display."} >
                         {(item) => (
                             <TableRow key={item.address}>
-                                <TableCell>{item.degreeId}</TableCell>
                                 <TableCell>{item.studentName}</TableCell>
                                 <TableCell>{item.npm}</TableCell>
                                 <TableCell>{item.uniName}</TableCell>
@@ -126,4 +118,4 @@ function FindIjazahPage() {
         </NextUIProvider>);
 }
 
-export default withWallet(withAuth(FindIjazahPage, [ROLE.ANON, ROLE.PDDIKTI, ROLE.UNIVERSITY, ROLE.STUDENT]) as any)
+export default withWallet(withAuth(StudentPage, [ROLE.ANON, ROLE.PDDIKTI, ROLE.UNIVERSITY, ROLE.STUDENT]) as any)

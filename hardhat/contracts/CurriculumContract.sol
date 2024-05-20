@@ -93,14 +93,21 @@ contract CurriculumContract {
             takenCoursesId,
             takenCoursesGrade,
             totalCreditsTakenSemesterly,
-            weightedTotalGradeSemesterly
+            weightedTotalGradeSemesterly,
+            0
         ));
-        _updateStudentData(studentId, creditsGained, totalCreditsTakenSemesterly, weightedTotalGradeSemesterly);
+        _updateStudentData(studentId, creditsGained, totalCreditsTakenSemesterly, takenCoursesId, takenCoursesGrade);
     }
-    function _updateStudentData(uint256 studentId, uint256 creditsGained, uint256 totalCreditsTakenSemesterly, uint256 weightedTotalGradeSemesterly) internal {
+    function _updateStudentData(uint256 studentId, uint256 creditsGained, uint256 totalCreditsTakenSemesterly, uint256[] calldata takenCoursesId, uint256[] calldata takenCoursesGrade) internal {
         students[studentId].accumulatedCredits += creditsGained;
         students[studentId].totalCreditsTaken += totalCreditsTakenSemesterly;
-        students[studentId].weightedTotalGrade += weightedTotalGradeSemesterly;
+        for (uint256 i=0; i<takenCoursesId.length;i++){
+            if (studentToPassedCourses[studentId][takenCoursesId[i]]) {
+                students[studentId].weightedTotalGrade += takenCoursesGrade[i] * courses[takenCoursesId[i]].credits;
+                academicRecords[studentId][academicRecords[studentId].length-1].weightedTotalPassedGrade += takenCoursesGrade[i] * courses[takenCoursesId[i]].credits;
+            }
+        }
+            
         if(_checkIfEligibleForGraduation(studentId)){
             students[studentId].grantedDegreeId = _mintADegree(studentId);
         }
