@@ -64,7 +64,7 @@ function StudentInfoPage({ params }: { params: { address: string } }) {
                                 ? (arr[i - 1].mutu + Number(_academicRecord[i].weightedTotalGrade)) * 100 / (arr[i - 1].sksA + Number(_academicRecord[i].totalCreditsTaken)) / 100
                                 : 0,
                             IPK: arr[i - 1].sksL + Number(_academicRecord[i].totalCreditsPassed) != 0
-                                ? Number((_academicRecord[i].weightedTotalPassedGrade) * BigInt(100) / (BigInt(arr[i - 1].sksL) + _academicRecord[i].totalCreditsPassed)) / 100
+                                ? (Math.round(arr[i-1].sksL*arr[i-1].IPK) + Number(_academicRecord[i].weightedTotalPassedGrade)) * 100 / (arr[i - 1].sksL + Number(_academicRecord[i].totalCreditsPassed)) / 100
                                 : 0
                         }])
                     }
