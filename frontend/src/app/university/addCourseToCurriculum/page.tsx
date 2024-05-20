@@ -89,7 +89,7 @@ function UniversityAddCourse() {
 
     return (
         <main className="flex min-h-screen flex-col items-center p-10">
-            <h2 className="text-2xl font-bold pb-10">Add Course Form</h2>
+            <h2 className="text-2xl font-bold pb-10">Add Course To Curriculum Form</h2>
             <form>
                 <div className="mb-4">
                     <label htmlFor="courseId" className="block mb-2">Course:</label>

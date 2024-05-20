@@ -22,6 +22,7 @@ contract UniversityContract {
     mapping (uint256 =>Library.Course) public courses;
     uint256 public coursesId;
 
+    mapping (address => Library.Student) public addressToStudent;
     mapping (uint256 => Library.Student) public students;
     uint256 public studentsId;
 
@@ -67,6 +68,7 @@ contract UniversityContract {
             0,
             0
         );
+        addressToStudent[_address] = students[studentsId];
         studentsId += 1;
     }
 
@@ -105,5 +107,11 @@ contract UniversityContract {
         require(studentId < studentsId);
         CurriculumContract curriculum = curriculums[students[studentId].curriculumId];
         return curriculum.getStudentInformation(studentId);
+    }
+
+    function getStudentInformationByAddress(address studentAddress) external view returns (Library.Student memory, Library.AcademicRecord[] memory){
+        require(studentAddress != address(0), "Invalid address");
+        CurriculumContract curriculum = curriculums[addressToStudent[studentAddress].curriculumId];
+        return curriculum.getStudentInformation(addressToStudent[studentAddress].id);
     }
 }

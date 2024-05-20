@@ -67,6 +67,7 @@ export declare namespace Library {
     takenCoursesGrade: BigNumberish[];
     totalCreditsTaken: BigNumberish;
     weightedTotalGrade: BigNumberish;
+    weightedTotalPassedGrade: BigNumberish;
   };
 
   export type AcademicRecordStructOutput = [
@@ -77,7 +78,8 @@ export declare namespace Library {
     takenCoursesId: bigint[],
     takenCoursesGrade: bigint[],
     totalCreditsTaken: bigint,
-    weightedTotalGrade: bigint
+    weightedTotalGrade: bigint,
+    weightedTotalPassedGrade: bigint
   ] & {
     semester: string;
     status: string;
@@ -87,6 +89,7 @@ export declare namespace Library {
     takenCoursesGrade: bigint[];
     totalCreditsTaken: bigint;
     weightedTotalGrade: bigint;
+    weightedTotalPassedGrade: bigint;
   };
 }
 
@@ -98,11 +101,13 @@ export interface UniversityContractInterface extends Interface {
       | "addAStudent"
       | "addCourseToCurriculum"
       | "addStudentToCurriculum"
+      | "addressToStudent"
       | "courses"
       | "coursesId"
       | "curriculums"
       | "curriculumsId"
       | "getStudentInformation"
+      | "getStudentInformationByAddress"
       | "students"
       | "studentsId"
       | "universityInfo"
@@ -131,6 +136,10 @@ export interface UniversityContractInterface extends Interface {
     values: [BigNumberish, BigNumberish]
   ): string;
   encodeFunctionData(
+    functionFragment: "addressToStudent",
+    values: [AddressLike]
+  ): string;
+  encodeFunctionData(
     functionFragment: "courses",
     values: [BigNumberish]
   ): string;
@@ -146,6 +155,10 @@ export interface UniversityContractInterface extends Interface {
   encodeFunctionData(
     functionFragment: "getStudentInformation",
     values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getStudentInformationByAddress",
+    values: [AddressLike]
   ): string;
   encodeFunctionData(
     functionFragment: "students",
@@ -177,6 +190,10 @@ export interface UniversityContractInterface extends Interface {
     functionFragment: "addStudentToCurriculum",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(
+    functionFragment: "addressToStudent",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "courses", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "coursesId", data: BytesLike): Result;
   decodeFunctionResult(
@@ -189,6 +206,10 @@ export interface UniversityContractInterface extends Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "getStudentInformation",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getStudentInformationByAddress",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "students", data: BytesLike): Result;
@@ -289,6 +310,34 @@ export interface UniversityContract extends BaseContract {
     "nonpayable"
   >;
 
+  addressToStudent: TypedContractMethod<
+    [arg0: AddressLike],
+    [
+      [
+        string,
+        bigint,
+        string,
+        string,
+        bigint,
+        bigint,
+        bigint,
+        bigint,
+        bigint
+      ] & {
+        _address: string;
+        id: bigint;
+        npm: string;
+        name: string;
+        accumulatedCredits: bigint;
+        grantedDegreeId: bigint;
+        curriculumId: bigint;
+        totalCreditsTaken: bigint;
+        weightedTotalGrade: bigint;
+      }
+    ],
+    "view"
+  >;
+
   courses: TypedContractMethod<
     [arg0: BigNumberish],
     [[bigint, string, bigint] & { id: bigint; name: string; credits: bigint }],
@@ -303,6 +352,12 @@ export interface UniversityContract extends BaseContract {
 
   getStudentInformation: TypedContractMethod<
     [studentId: BigNumberish],
+    [[Library.StudentStructOutput, Library.AcademicRecordStructOutput[]]],
+    "view"
+  >;
+
+  getStudentInformationByAddress: TypedContractMethod<
+    [studentAddress: AddressLike],
     [[Library.StudentStructOutput, Library.AcademicRecordStructOutput[]]],
     "view"
   >;
@@ -390,6 +445,35 @@ export interface UniversityContract extends BaseContract {
     "nonpayable"
   >;
   getFunction(
+    nameOrSignature: "addressToStudent"
+  ): TypedContractMethod<
+    [arg0: AddressLike],
+    [
+      [
+        string,
+        bigint,
+        string,
+        string,
+        bigint,
+        bigint,
+        bigint,
+        bigint,
+        bigint
+      ] & {
+        _address: string;
+        id: bigint;
+        npm: string;
+        name: string;
+        accumulatedCredits: bigint;
+        grantedDegreeId: bigint;
+        curriculumId: bigint;
+        totalCreditsTaken: bigint;
+        weightedTotalGrade: bigint;
+      }
+    ],
+    "view"
+  >;
+  getFunction(
     nameOrSignature: "courses"
   ): TypedContractMethod<
     [arg0: BigNumberish],
@@ -409,6 +493,13 @@ export interface UniversityContract extends BaseContract {
     nameOrSignature: "getStudentInformation"
   ): TypedContractMethod<
     [studentId: BigNumberish],
+    [[Library.StudentStructOutput, Library.AcademicRecordStructOutput[]]],
+    "view"
+  >;
+  getFunction(
+    nameOrSignature: "getStudentInformationByAddress"
+  ): TypedContractMethod<
+    [studentAddress: AddressLike],
     [[Library.StudentStructOutput, Library.AcademicRecordStructOutput[]]],
     "view"
   >;
